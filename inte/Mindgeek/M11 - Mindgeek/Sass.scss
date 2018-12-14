@@ -1,0 +1,26 @@
+$color1: red;
+$color2: green;
+$color3: yellow;
+$color4: purple;
+$color5: white;
+
+
+h1 {
+	color: $color1;
+}
+
+section p {
+	color: $color4;
+}
+
+@for $i from 2 through 12 {
+	.grid-#{$i} {
+		display: flex;
+		flex-wrap: wrap;
+		}
+	.grid-#{$i}>*{
+		width: 100%/$i;
+	}
+}
+
+

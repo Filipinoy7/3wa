@@ -1,0 +1,185 @@
+* {
+	box-sizing: border-box;
+}
+h1, h2, h3 {
+	font-family: 'Candal', sans-serif;
+
+}
+p {
+	font-family: 'Open Sans', sans-serif;
+
+}
+body {
+	text-align: center;
+	margin: 0px;
+}
+header img {
+	padding-bottom: 20px;
+	width: 10%;
+}
+header {
+	padding: 10px;
+}
+ nav a {
+ 	display: flex;
+ 	flex-direction: column;
+ 	padding: 15px;
+ 	text-decoration: none;
+ 	color: #1E444C;
+ 	font-weight: bold;
+ }
+ input {
+ 	background-color: #FF8A96;
+ 	border: 0px;
+ }
+main {
+ 	padding: 35px;
+ }
+main a{
+	display: flex;
+ 	flex-direction: column;
+	color: #FF8A96;
+	text-decoration: none;
+	padding:10px;
+	font-weight: bold;
+
+}
+main h2 {
+	color: #1E444C;
+	border: 1px dotted black;
+	border-bottom: none;
+	padding-top: 20px;
+}
+main p {
+	opacity: 0.6;
+}
+.back {
+	background-image:url("img/background.jpg");
+	background-position: center;
+	padding: 100px;
+}
+.back h2 {
+	color: white;
+	line-height: 1.5em;
+	font-weight: normal;
+}
+.back h1 {
+	color: white;
+	font-weight: bold;
+	padding: 10px;
+}
+form {
+	background-color: #FF8A96;
+	padding: 10px;
+	color: white;
+	text-align: left;
+}
+
+i {
+	padding: 10px;
+}
+.far, .fas {
+	color: #FF8A96;
+}
+
+@media screen and (min-width : 960px) {
+	header nav {
+		display: flex;
+		justify-content: space-around;
+		padding-bottom: 20px;
+	}
+	nav img {
+		width: 100px;
+		height: 100px;
+	}
+	.navfooter  {
+		display: flex;
+		justify-content: space-around;
+		padding-bottom: 20px;
+	}
+	.art1{
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 30px;
+	}
+	.art2{
+		display: flex;
+		justify-content: space-between;
+	}
+	i {
+		font-size: 30px;
+	}
+	main {
+		width: 1000px;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+	.container {
+		width: 1000px;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+	header {
+		width: 1000px;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+	h2 {
+		padding-bottom: 60px;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navfooter {
+	margin-top: 20px;
+}
+.navfooter a {
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.onze {
+	text-align: center;
+	font-size:15px;
+	line-height:20px;
+	background-color: #23404E;
+	color: white;
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+.onze a {
+	color:white;
+}
+.onze img {
+	height:auto;
+	width:140px;
+}

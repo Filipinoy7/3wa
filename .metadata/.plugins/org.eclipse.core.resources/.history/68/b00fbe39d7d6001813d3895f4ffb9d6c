@@ -1,0 +1,100 @@
+<?php
+namespace Franck\EcommerceBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use Franck\EcommerceBundle\Entity\User;
+
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
+{
+    public function load(ObjectManager $manager)
+    {
+        $user1=new User();
+        $user1->setUsername('Hades');
+        $user1->setEmail('franck.3wa@gmail.com');
+        $user1->setEnabled(true);
+        $user1->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user1->setRoles($roles);
+        $manager->persist($user1);
+        
+        $user2=new User();
+        $user2->setUsername('Nicolas');
+        $user2->setEmail('nicolas@gmail.com');
+        $user2->setEnabled(true);
+        $user2->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user2->setRoles($roles);
+        $manager->persist($user2);
+        
+        $user3=new User();
+        $user3->setUsername('Armen');
+        $user3->setEmail('armen@gmail.com');
+        $user3->setEnabled(true);
+        $user3->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user3->setRoles($roles);
+        $manager->persist($user3);
+        
+        $user4=new User();
+        $user4->setUsername('Cyril');
+        $user4->setEmail('cyril@gmail.com');
+        $user4->setEnabled(true);
+        $user4->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user4->setRoles($roles);
+        $manager->persist($user4);
+        
+        $user5=new User();
+        $user5->setUsername('Béatrix');
+        $user5->setEmail('beatrix@gmail.com');
+        $user5->setEnabled(true);
+        $user5->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user5->setRoles($roles);
+        $manager->persist($user5);
+        
+        $user6=new User();
+        $user6->setUsername('Yann');
+        $user6->setEmail('yano.c@hotmail.com');
+        $user6->setEnabled(true);
+        $user6->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user6->setRoles($roles);
+        $manager->persist($user6);
+        
+        $user7=new User();
+        $user7->setUsername('Severian');
+        $user7->setEmail('severian@gmail.com');
+        $user7->setEnabled(true);
+        $user7->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user7->setRoles($roles);
+        $manager->persist($user7);
+        
+        $user8=new User();
+        $user8->setUsername('Mohamed');
+        $user8->setEmail('mohamed@gmail.com');
+        $user8->setEnabled(true);
+        $user8->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user8->setRoles($roles);
+        $manager->persist($user8);
+        
+/*        $user=new User();
+        $user->setUsername('');
+        $user->setEmail('@gmail.com');
+        $user->setEnabled(true);
+        $user->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user->setRoles($roles);
+        $manager->persist($user);*/
+        
+        $manager->flush();
+        
+        $this->addReference('user1', $user1);
+        $this->addReference('user2', $user2);
+        $this->addReference('user3', $user3);
+        $this->addReference('user4', $user4);
+        $this->addReference('user5', $user5);
+        $this->addReference('user6', $user6);
+        $this->addReference('user7', $user7);
+    }
+    
+    public function getOrder()
+    {
+        return 3;
+    }
+}

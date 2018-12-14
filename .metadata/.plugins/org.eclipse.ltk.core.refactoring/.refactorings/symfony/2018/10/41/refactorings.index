@@ -1,0 +1,7 @@
+1539075645934	Move 'LoadSkillFixtures.php' to 'DataFixtures'
+1539075675300	Move 'LoadSkillFixtures.php' to 'ORM'
+1539089775700	Move 'SkillLevelType.php' to 'Type'
+1539267250047	Move 'views' to 'FOSUserBundle'
+1539267256085	Move 'translations' to 'FOSUserBundle'
+1539267271176	Move 'config' to 'FOSUserBundle'
+1539267277734	Move 'doc' to 'FOSUserBundle'

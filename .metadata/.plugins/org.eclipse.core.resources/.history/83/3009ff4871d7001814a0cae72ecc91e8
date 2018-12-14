@@ -1,0 +1,31 @@
+{% extends '@FranckEcommerce/layout.html.twig' %}
+{#% extends"::layout.html.twig" %#}
+
+{% block title %}{{ parent() }}-page test{% endblock %}
+{% block content %}
+	<div class="span4">
+    	<h2>Mes adresses</h2>
+    	{% if addresses is defined and addresses is iterable %}
+    		liste des adresses
+    		{% for address in addresses %}
+    			<h3>{{ address.alias }}</h3>
+    			<div>
+        			<p class="my-1">Destinataire: {{ address.firstname|title }} {{ address.name|upper }}</p>
+        			<p class="my-1">Téléphone: {{ address.phone }}</p>
+        			<p class="my-1">Adresse: {{ address.address1 }}</p>
+        			<p class="my-1">Complément d'adresse: {{ address.address2 }}</p>
+        			<p class="my-1">{{ address.zipcode|upper }} {{ address.city|title }}</p>
+        			<p class="my-1">{{ address.country|upper }}</p>
+        			<p class="my-1">Informations complémentaires: {{ address.extra }}</p>
+    			</div>
+    		{% endfor %}
+    	{% else %}
+    		<p class="my-1">Aucune adresse enregistrée</p>
+        {% endif %}
+    </div>
+	<div class="span4">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+franck_ecommerce_homepage:
+    path:     /
+    defaults: { _controller: FranckEcommerceBundle:Default:index }
+
+franck_ecommerce_add_address:
+    path:     /adresses
+    defaults: { _controller: FranckEcommerceBundle:Default:addAddress }
+
+
+
+
+
+
+

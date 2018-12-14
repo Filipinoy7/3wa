@@ -1,0 +1,74 @@
+{% extends '@FranckEcommerce/layout.html.twig' %}
+{#% extends"::layout.html.twig" %#}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+	{% if cart is defined and cart is iterable %}
+		<h1>Votre panier</h1>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Références</th>
+					<th>Quantité</th>
+					<th>Prix unitaire (HT)</th>
+					<th>Total (HT)</th>
+					<th>Total (TTC)</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for category, details in cart.details %}
+					<tr><td colspan="5" style="text-align:center;"><h4>{{ category|title }}</h4></td></tr>
+					{% for product, details in details %}
+						<tr>
+							<td><a href="{{ url('franck_ecommerce_product', { 'id' : details.id }) }}">{{ product }}</a></td>
+						<td>
+							{{ details.nbProducts }} 
+							<a href="{{ url('franck_ecommerce_cart_remove', { 'idProduct' : details.id }) }}"><i class="icon-trash"></i></a>
+						</td>
+						<td>{{ details.priceHT }}</td>
+						<td>{{ details.subTotal }}</td>
+						<td>{{ details.total }}</td>
+					</tr>
+					{% endfor %}
+				{% endfor %}
+			</tbody>
+		</table>
+		<dl class="dl-horizontal pull-right">
+			<dt>Total HT :</dt><dd>{{ cart.subTotal }} €</dd>
+			<dt>TVA :</dt><dd>{{ cart.totalTVA }} €</dd>
+			<dt>Total TTC :</dt><dd>{{ cart.total }} €</dd>
+		</dl>
+		<div class="clearfix"></div>
+		<a href="{{ url('franck_ecommerce_cart_valid') }}" class="btn btn-success pull-right">Valider mon panier</a>
+		<a href="{{ url('franck_ecommerce_homepage') }}" class="btn btn-primary">Continuer mes achats</a>
+	{% elseif form is defined %}
+	
+			{% if addresses is defined and addresses is iterable %}
+				liste des adresses
+				{% for address in addresses %}
+					<h3 class="clickable" onclick="javascript:ShowHidd('{{ address.idBlock }}')">{{ address.alias }}</h3>
+					<div id="{{ address.idBlock }}" class="hidd">
+					<p class="my-1">Destinataire: {{ address.firstname|title }} {{ address.name|upper }}</p>
+					<p class="my-1">{{'Téléphone'|trans}}: {{ address.phone }}</p>
+					<p class="my-1">{{'Adresse'|trans}}:</p>
+					<p class="my-1">{{ address.address1 }}</p>
+					<p class="my-1">{{ address.address2 }}</p>
+					<p class="my-1">{{ address.zipcode|upper }} {{ address.city|title }}</p>
+					<p class="my-1">{{ address.country|upper }}</p>
+					{% if address.extra is defined and address.extra != '' %}
+						<p class="my-1">Informations complémentaires:</p>
+						<p class="my-1">{{ address.extra }}</p>
+					{% endif %}
+					</div>
+				{% endfor %}
+			{% else %}
+				<p class="my-1">Aucune adresse enregistrée</p>
+				<a href="{{ url('franck_ecommerce_address_add') }}">Mes adresses</a>
+			{% endif %}
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		{{ form_end(form) }}
+	{% else %}
+		Votre panier est vide
+	{% endif %}
+{% endblock %}

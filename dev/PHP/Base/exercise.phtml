@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Traducteur</title>
+     <link rel="stylesheet" href="exercise.css">
+</head>
+<body>
+
+
+<?php if(array_key_exists('word', $_POST) == true) { ?>
+	<p>La traduction du mot <?=$word?> est <?=$answer?></p> 
+<?php }	
+else {?>
+<form action="exercise.php" method="POST">
+	<ul>
+    <li>
+         
+        <label for="word">Mot :</label>
+        <input type="text" id="word" name="word">
+    </li>
+    <li>
+        <label for="direction">Sens de traduction :</label>
+    	<select id="direction" name="direction">
+        <option value="versTagalog">Français vers Tagalog</option>
+        <option value="versFrançais">Tagalog vers Français</option>
+    </select>
+    </li>
+    <li>
+        <input type="submit" value="Traduire" target="_blank">
+    </li>
+    </ul>
+</form> 
+
+<?php } ?>
+
+</body>
+</html>

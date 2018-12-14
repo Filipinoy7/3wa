@@ -1,0 +1,62 @@
+var tabShown = new Array();
+
+function ShowHidd(id)
+{
+	switch (document.getElementById(id).className)
+	{
+		case 'show':
+					document.getElementById(id).className='hidd';
+					if (tabShown.length > 0)
+					{
+						console.log("tabShown > 0");
+						for (var idShown in tabShown)
+						{
+							console.log("idShown="+idShown);
+/*							if (idShown == id)
+								delete tabShown[id];*/
+						}
+					}
+					break;
+		case 'hidd':
+					document.getElementById(id).className='show';
+					tabShown.push(id);
+					break;
+		default:
+				alert('Malheureusement, une fonctionnalité de cette page a été mal utilisée.');
+			 	break;
+	}
+}
+
+function ShowHiddExclu(id)
+{
+	if (tabShown.length > 0)
+	{
+		console.log("tabShown="+tabShown.length+"; id="+id);
+		for (var idShown in tabShown)
+		{
+			ShowHidd(idShown);
+		}
+		tabShown = new Array();
+	}
+	ShowHidd(id);
+	
+/*	switch (document.getElementById(id).className)
+	{
+		case 'show':
+					document.getElementById(id).className='hidd';
+					break;
+		case 'hidd':
+					if (tabShown.length > 0)
+					{
+						for (var idShown in tabShown)
+							ShowHidd(idShown);
+						tabShown = new Array();
+					}
+					document.getElementById(id).className='show';
+					tabShown.push(id);
+					break;
+		default:
+				alert('Malheureusement, une fonctionnalité de cette page a été mal utilisée.');
+			 	break;
+	}*/
+}

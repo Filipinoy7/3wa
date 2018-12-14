@@ -1,0 +1,35 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+ul   {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+
+li {
+	list-style-type: none;
+}
+
+span {
+	color:red;
+}
+
+li:hover {
+	border: silver 5px solid;
+	transition: background-color 0.8s;
+
+}
+
+.new {
+	border-color: green;
+}

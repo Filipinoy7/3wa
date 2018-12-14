@@ -1,0 +1,33 @@
+<?php
+namespace AC\BoutiqueBundle\EventListener;
+use AC\BoutiqueBundle\Event\UserTokenEvent;
+use AC\BoutiqueBundle\Services\TokenGenerator;
+use AC\BoutiqueBundle\Entity\UserToken;
+class UserTokenListenerB
+{
+    protected $tokenGenerator;
+    protected $minutesToAdd;
+    
+    public function __construct(TokenGenerator $tokenGenerator, $minutesToAdd)
+    {
+        $this->tokenGenerator=$tokenGenerator;
+        $this->minutesToAdd=(int)$minutesToAdd;
+    }
+    
+    public function generateToken(UserToken $userToken)
+    {
+        $token=$this->tokenGenerator
+            ->setTokenLength('230')
+            ->setPrefix('')
+            ->generate()
+            ->getToken();
+        $userToken->setToken($token);
+    }
+    
+    public function generateDatetime(UserToken $userToken)
+    {
+        $expDate=new \DateTime('2000-01-01');
+        $expDate->add(new \DateInterval('PT'.$this->minutesToAdd.'M'));
+        $userToken->setExpirationDate($expDate->format('Y-m-d H:i:s'));
+    }
+}

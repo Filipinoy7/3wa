@@ -1,0 +1,13 @@
+<?php
+
+namespace AC\EcommerceBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class DefaultController extends Controller
+{
+    public function indexAction()
+    {
+        return $this->render('ACEcommerceBundle:Default:index.html.twig');
+    }
+}

@@ -1,0 +1,9 @@
+<?php
+
+namespace Franck\ECommerceBundle;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class FranckECommerceBundle extends Bundle
+{
+}

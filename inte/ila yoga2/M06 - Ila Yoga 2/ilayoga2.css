@@ -1,0 +1,190 @@
+* {
+	box-sizing: border-box;
+}
+header {
+	background-image: url(img/fond.jpg);
+	background-size: cover;
+	background-position: center;
+	font-family: "Kaushan Script", cursive;
+	color: white;
+}
+nav a {
+	color: white;
+	display: inline-block;
+	padding-right: 20px;
+	text-decoration: none;
+	padding: 20px;
+}
+.promo {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background-color: rgba(255, 255, 255, 0.2);
+	animation-duration: 5s;
+  	animation-name: slidein;
+  	font-family: normal ;
+}
+.navi i {
+	display: block;
+}
+a:hover {
+	text-decoration: underline;
+}
+.promoa {
+	color: white;
+	text-decoration: none;
+}
+@keyframes slidein {
+	from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+nav {
+	text-align: center;
+	font-size: 1.5em;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+h1 {
+	text-align: center;
+	padding-bottom: 200px;
+	margin-top: 150px;
+	font-family: "Kaushan Script", cursive;
+}
+table , th, td, tr {
+	border: 0.1px solid grey;
+	border-collapse: collapse;
+}
+table {
+	width: 100%;
+	text-align: center;
+	;
+}
+th {
+	text-align: left;
+	height: 40px;
+	padding-left: 20px;
+	font-family: "Kaushan Script", cursive;
+}
+main {
+	margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  text-align: center;
+}
+.tableau1 {
+	margin-top: 20px;
+}
+.tableau2 {
+	margin-top: 25px;
+}
+.tab1 {
+	background-color: #C3A3DB;
+	color: white;
+}
+.tab2 {
+	background-color: #C3A3DB;
+	color: white;
+}
+tbody tr td a {
+	color: #C3A3DB;
+	text-decoration: none;
+}
+h2 {
+	text-align: center;
+	margin-top: 50px;
+	font-weight: normal;
+	opacity: 0.6;
+}
+tr {
+	height: 30px;
+}
+tr:nth-child(even) {
+	background-color: #d6cfcf;
+}
+h3 {
+	text-align: center;
+	font-weight: normal;
+	opacity: 0.8;
+}
+#pseudo {
+	display: inline;
+}
+legend {
+	text-align: center;
+	font-size: 1.5em;
+}
+fieldset p {
+	display: inline-block;
+	font-weight: normal;
+}
+button {
+	background-color: #8A5BBC;
+	text-align: center;
+	margin-top: 10px;
+	height: 30px;
+	width: 100px;
+	color:white;
+}
+fieldset {
+	margin-top: 20px;
+	border-color: white;
+	opacity: 0.6;
+}
+label {
+	text-align: center;
+
+}
+form {
+	margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+}
+td:first-child {
+	text-align: left;
+	padding-left: 10px;
+	opacity: 0.7;
+}
+td:nth-child(2) {
+	opacity: 0.7;
+}
+#souscrire {
+	text-align: center;
+	padding-left: 200px;
+}
+
+.onze {
+	text-align: center;
+	font-size:15px;
+	line-height:20px;
+}
+
+.onze img {
+	height:auto;
+	width:140px;
+}
+footer {
+	background-color: #8A5BBC;
+	margin-top: 20px;
+	color: white;
+}
+footer a {
+	color:white;
+}
+.coordonnees {
+	margin-right: 60px;
+}
+.prenom {
+	margin-right: 30px;
+	border:0;
+	border-bottom:1px solid black;
+
+}
+.dernier {
+	text-align: left;
+}

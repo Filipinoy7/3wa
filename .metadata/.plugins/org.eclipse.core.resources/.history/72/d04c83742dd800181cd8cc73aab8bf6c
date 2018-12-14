@@ -1,0 +1,18 @@
+
+    	{% if categories is defined and categories is iterable %}
+    		
+    		<div class="well">
+    			<ul class="nav nav-list">
+            		<li class="nav-header">Nos produits</li>
+            		{% for category in categories %}
+            			{% if category.name == '' %}
+            				<li class="active">
+            			{% else %}
+            				<li>
+            			{% endif %}
+        					<a href="{{ url('franck_ecommerce_category') }}">{{ category.name|title }}</a>
+        				</li>
+            		{% endfor %}
+    			</ul>
+    		</div>
+        {% endif %}

@@ -1,0 +1,37 @@
+p {
+				color:red;
+				font-size:16px;
+				font-family:monospace
+			;
+			}
+h1 {
+			color:blue;
+}
+ul  {
+			color:yellow;
+}
+dd {
+			color:green;
+			font-weight:bold;
+			font-style:italic;
+			text-align:right;
+			background-color:red;
+}
+.h2 {
+	color:red;
+}
+.breve {
+	color:green;
+}
+.maison {
+	color:#B8860B;
+}
+.h8 {
+	color:#FF1493;
+	font-size:16px;
+}
+dt {
+	color:yellow;
+	background-color:black;
+	text-align:middle;
+}

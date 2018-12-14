@@ -1,0 +1,86 @@
+franck_ecommerce_homepage:
+    path:     /
+    defaults: { _controller: FranckEcommerceBundle:Default:index }
+
+franck_ecommerce_inscription:
+    path:     /inscription.{format}
+    defaults: { _controller: fos_user.registration.controller:registerAction }
+    requirements:
+        format: php
+
+
+
+
+
+franck_ecommerce_homepage:
+    path:     /
+    defaults: { _controller: EcommerceEcommerceBundle:Ecommerce:index}
+
+franck_ecommerce_connexion:
+    path:     /connexion.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:connexion, format: php }
+
+franck_ecommerce_adresse:
+    path:     /adresses.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:adresses, format: php }
+
+franck_ecommerce_facture:
+    path:     /facture.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:facture, format: php }
+
+franck_ecommerce_facturesPDF:
+    path:     /factures/pdf/{id}.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:facturesPDF, format: php }
+
+
+franck_ecommerce_livraison:
+    path:     /livraison.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:livraison, format: php }
+
+franck_ecommerce_produit:
+    path:     /produit/{id}.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:produit, format: php }
+
+franck_ecommerce_texte:
+    path:     /texte.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:texte, format: php }
+
+franck_ecommerce_validation:
+    path:     /validation.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:validation, format: php }
+
+franck_ecommerce_panier:
+    path:     /panier
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:panier, format: php }
+
+franck_ecommerce_mon-compte:
+    path:     /mon-compte.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:moncompte, format: php }
+
+franck_ecommerce_mot-de-passe-perdu:
+    path:     /mot-de-passe-perdu.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:motdepasseperdu, format: php }
+
+franck_ecommerce_nouveau-mot-de-passe:
+    path:     /nouveau-mot-de-passe.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:nouveaumotdepasse, format: php }
+
+franck_mescategories:
+    path: /mescategories/{category}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:mescategories}
+
+franck_ecommerce_recherchetraitement:
+    path: /recherchetraitement
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:recherchetraitement}
+
+franck_ecommerce_ajouter:
+    path:     /ajouter/{id}.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:ajouter, format: php }
+
+franck_ecommerce_supprimer:
+    path:     /supprimer/{id}.{format}
+    defaults: {_controller: EcommerceEcommerceBundle:Ecommerce:supprimer, format: php }
+
+
+
+

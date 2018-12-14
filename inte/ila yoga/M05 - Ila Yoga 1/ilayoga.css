@@ -1,0 +1,182 @@
+* {
+	box-sizing: border-box;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+  margin-left: 30px;
+}
+section {
+	background-image: url("img/background_section.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+}
+hr {
+	border-color: #dccddb;
+	width: 90%;
+}
+.cours {
+	float:left;
+	margin-bottom: 30px;
+}
+.posture {
+	float: right;
+	margin-bottom: 60px;
+}
+.clear {
+	clear: both;
+}
+h2 {
+	text-align: center;
+	font-weight: normal;
+}
+.premier {
+	padding: 50px;
+}
+.premier h2, p {
+	opacity: 0.6;
+}
+.nos1 {
+	float: left;
+	width: 32%;
+	display: inline-block;
+}
+.nos2 {
+	float: left;
+	width: 32%;
+	display: inline-block;
+}
+.nos3 {
+	float: left;
+	width: 32%;
+	display: inline-block;
+}
+iframe {
+	background-size: cover;
+}
+footer {
+	background-image: url("img/background_section.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+}
+main {
+	max-width: 2000px
+}
+nav {
+	text-align: center;
+	font-size: 1.5em;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+h1 {
+	text-align: center;
+	padding-bottom: 200px;
+	margin-top: 150px;
+	font-family: "Kaushan Script", cursive;
+}
+.tousnos {
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+	text-align: center;
+}
+section>article>p {
+	text-align: left;
+}
+.tousnos p {
+	text-align: center;
+	padding-left: auto;
+	padding-right: auto;
+}
+.tousnos img {
+	width: 200px;
+	height: 200px;
+}
+.google {
+	margin-left: auto;
+	margin-right: auto;
+}
+.premierimg img {
+	padding-right: 30px;
+}
+.deuxiemeimg img {
+	padding-left: 30px;
+}
+header {
+	background-image: url(img/fond.jpg);
+	background-size: cover;
+	background-position: center;
+	font-family: "Kaushan Script", cursive;
+	color: white;
+}
+.promo {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background-color: rgba(255, 255, 255, 0.2);
+	animation-duration: 5s;
+  	animation-name: slidein;
+  	font-family: normal ;
+	}
+
+nav a {
+	color: white;
+	display: inline-block;
+	padding-right: 20px;
+	text-decoration: none;
+	padding: 20px;
+}
+.navi i {
+	display: block;
+}
+a:hover {
+	text-decoration: underline;
+}
+.promoa {
+	color: white;
+	text-decoration: none;
+}
+p {
+	font-size: 1em;
+}
+
+img:hover {
+	width: 50%;
+	height: 50%;
+}
+
+@keyframes slidein {
+	from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.onze {
+	text-align: center;
+	font-size:15px;
+	line-height:20px;
+}
+
+.onze img {
+	height:auto;
+	width:140px;
+}

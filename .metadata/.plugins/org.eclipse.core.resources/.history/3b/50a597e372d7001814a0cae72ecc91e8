@@ -1,0 +1,49 @@
+<?php
+
+namespace Franck\EcommerceBundle\Form;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
+class UserAddressType extends AbstractType
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+//        $builder->add('name')->add('firstname')->add('phone')->add('address1')->add('address2')->add('zipcode')->add('city')->add('country')->add('extra')->add('user');
+        $builder
+            ->add('alias', array('label' => 'Alias (ex: bureau, maison, etc...)'))
+            ->add('name', array('label' => 'Nom'))
+            ->add('firstname', array('label' => 'Create Task'))
+            ->add('phone')
+            ->add('address1')
+            ->add('address2')
+            ->add('zipcode')
+            ->add('city')
+            ->add('country')
+            ->add('extra');
+        $builder->add('save', SubmitType::class, array('label' => 'sauvegarder'));
+    }/**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Franck\EcommerceBundle\Entity\UserAddress'
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'franck_ecommercebundle_useraddress';
+    }
+
+
+}

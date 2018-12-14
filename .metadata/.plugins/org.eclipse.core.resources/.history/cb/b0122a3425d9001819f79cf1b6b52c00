@@ -1,0 +1,34 @@
+var tabShown;
+
+function ShowHidd(id)
+{
+	switch(document.getElementById(id).className)
+	{
+		case 'show':
+			document.getElementById(id).className='hidd';
+			tabShown
+			break;
+		case 'hidd':
+			document.getElementById(id).className='show';
+			break;
+		default:
+			alert('Malheureusement, une fonctionnalité de cette page a été mal utilisée.');
+		 	break;
+	}
+}
+
+function ShowHiddExclu(id)
+{
+	switch(document.getElementById(id).className)
+	{
+		case 'show':
+			document.getElementById(id).className='hidd';
+			break;
+		case 'hidd':
+			document.getElementById(id).className='show';
+			break;
+		default:
+			alert('Malheureusement, une fonctionnalité de cette page a été mal utilisée.');
+		 	break;
+	}
+}

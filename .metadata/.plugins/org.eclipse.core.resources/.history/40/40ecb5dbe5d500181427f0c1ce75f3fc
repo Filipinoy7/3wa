@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+    	<title>{% block title %}DevAndClick Fronted{% endblock %}</title>
+    	<link rel="stylesheet" href="../css/bootstrap.css" />
+    	<link rel="stylesheet" href="../css/bootstrap-responsive.css" />
+    	<link rel="stylesheet" href="../css/style.css" />
+    	<link rel="stylesheet" href="../css/font-awesome.css" />
+    </head>
+    <body>
+    	{% block body %}
+        {% block header %}{% endblock %}
+    	<hr />
+    	{% block col-left %}{% endblock %}
+    	{% block content %}{% endblock %}
+    
+    	{% block footer %}{% endblock %}
+    	<script src="../js/jquery-1.10.0.min.js"></script>
+    	<script src="../js/bootstrap.js"></script>
+    	{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,3 @@
+ac_ecommerce_homepage:
+    path:     /
+    defaults: { _controller: ACEcommerceBundle:Default:index }

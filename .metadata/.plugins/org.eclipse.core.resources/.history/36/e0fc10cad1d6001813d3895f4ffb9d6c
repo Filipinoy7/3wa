@@ -1,0 +1,108 @@
+<?php
+namespace Franck\EcommerceBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use Franck\EcommerceBundle\Entity\Product;
+
+class LoadProductData extends AbstractFixture implements OrderedFixtureInterface
+{
+    public function load(ObjectManager $manager)
+    {
+        $product1=new Product();
+        $product1->setName('Poivron rouge');
+        $product1->setDescription('Poivron rouge');
+        $product1->setPrice(3.6);
+        $product1->setStock(50);
+        $product1->setCategory($this->getReference('category1'));
+        $product1->setImage($this->getReference('media3'));
+        $product1->setTax($this->getReference('tax3'));
+        $manager->persist($product1);
+        
+        $product2=new Product();
+        $product2->setName('Piment');
+        $product2->setDescription('Piment');
+        $product2->setPrice(3.6);
+        $product2->setStock(50);
+        $product2->setCategory($this->getReference('category1'));
+        $product2->setImage($this->getReference('media4'));
+        $product2->setTax($this->getReference('tax3'));
+        $manager2->persist($product2);
+        
+        $product3=new Product();
+        $product3->setName('Tomate');
+        $product3->setDescription('Tomate');
+        $product3->setPrice(3.6);
+        $product3->setStock(50);
+        $product3->setCategory($this->getReference('category1'));
+        $product3->setImage($this->getReference('media5'));
+        $product3->setTax($this->getReference('tax3'));
+        $manager->persist($product3);
+        
+        $product4=new Product();
+        $product4->setName('Poivron vert');
+        $product4->setDescription('Poivron vert');
+        $product4->setPrice(3.6);
+        $product4->setStock(50);
+        $product4->setCategory($this->getReference('category1'));
+        $product4->setImage($this->getReference('media6'));
+        $product4->setTax($this->getReference('tax3'));
+        $manager->persist($product4);
+        
+        $product5=new Product();
+        $product5->setName('Raisin');
+        $product5->setDescription('Raisin');
+        $product5->setPrice(3.6);
+        $product5->setStock(50);
+        $product5->setCategory($this->getReference('category2'));
+        $product5->setImage($this->getReference('media7'));
+        $product5->setTax($this->getReference('tax3'));
+        $manager->persist($product5);
+        
+        $product6=new Product();
+        $product6->setName('Orange');
+        $product6->setDescription('Oranges au kilo');
+        $product6->setPrice(3.6);
+        $product6->setStock(50);
+        $product6->setCategory($this->getReference('category2'));
+        $product6->setImage($this->getReference('media8'));
+        $product6->setTax($this->getReference('tax3'));
+        $manager->persist($product6);
+        
+        $product7=new Product();
+        $product7->setName('Bière Belge "Delirium Tremens"');
+        $product7->setDescription('Bière Belge "Delirium Tremens" à l\'unité');
+        $product7->setPrice(3.6);
+        $product7->setStock(50);
+        $product7->setCategory($this->getReference('category3'));
+        $product7->setImage($this->getReference('media9'));
+        $product7->setTax($this->getReference('tax1'));
+        $manager->persist($product7);
+        
+/*        $product=new Product();
+        $product->setName('');
+        $product->setDescription('');
+        $product->setPrice(3.6);
+        $product->setStock(50);
+        $product->setCategory($this->getReference('category'));
+        $product->setImage($this->getReference('media'));
+        $product->setTax($this->getReference('tax3'));
+        $manager->persist($product);*/
+        
+        $manager->flush();
+        
+        $this->addReference('product1', $product1);
+        $this->addReference('product2', $product2);
+        $this->addReference('product3', $product3);
+        $this->addReference('product4', $product4);
+        $this->addReference('product5', $product5);
+        $this->addReference('product6', $product6);
+        $this->addReference('product7', $product7);
+    }
+    
+    public function getOrder()
+    {
+        return 3;
+    }
+}

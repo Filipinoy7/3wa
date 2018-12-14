@@ -1,0 +1,18 @@
+{% extends '@FranckEcommerce/layout.html.twig' %}
+{#% extends"::layout.html.twig" %#}
+
+{% block title %}{{ parent() }}-{{ title }}{% endblock %}
+{% block content %}
+	{% if product is defined %}
+    	<img src="{{ product.imgPath }}" class="img-fluid" alt="{{ product.imgAlt }}" />
+    	<h3>{{ product.name }}</h3>
+    	<span>{{ product.description }}</span>
+        <p>{{ product.priceTTC }}€ TTC</p>
+        
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    {% else %}
+    	Produit non trouvé
+    {% endif %}
+{% endblock %}

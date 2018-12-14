@@ -1,0 +1,59 @@
+parameters:
+    Franck_Public_Dir: '%kernel.project_dir%/web/images/'
+    Franck_Delai_LostPassword: 1440    # Delai max en minutes
+
+services:
+#    ac_boutique.example:
+#        class: AC\BoutiqueBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    Franck_FileManager:
+        class: AC\BoutiqueBundle\Services\FileManager
+        arguments:
+            - "%Franck_Public_Dir%"
+
+    Franck_TokenGenerator:
+        class: AC\BoutiqueBundle\Services\TokenGenerator
+#        arguments:
+#            - ""
+
+    Franck_GetDelayFromNow:
+        class: AC\BoutiqueBundle\Services\DelayGenerator
+        arguments:
+            - "now"
+            - "%Franck_Delai_LostPassword%"
+
+    Franck_listener_usertoken:
+        class: AC\BoutiqueBundle\EventListener\UserTokenListener
+        arguments:
+            - "@Franck_TokenGenerator"
+            - "%Franck_Delai_LostPassword%"
+        tags:
+            - { name: boutique.user.generate_token, event: boutique.user.needtoken, method: generateToken }
+            - { name: boutique.user.generate_datetime, event: boutique.user.needtoken, method: generateDatetime }
+
+    Franck_listener_userlostpass:
+        class: AC\BoutiqueBundle\EventListener\UserListener
+        arguments:
+            - "@doctrine.orm.entity_manager"
+        tags:
+            - { name: boutique.user.checkuser, event: boutique.user.passforgot, method: checkUser }
+            - { name: boutique.user.checkusertoken, event: boutique.user.passforgot, method: checkUserToken }
+
+
+    Franck_listener_test_orm:
+        class: AC\BoutiqueBundle\EventListener\UserTokenListenerB
+        arguments:
+            - "@Franck_TokenGenerator"
+            - "%Franck_Delai_LostPassword%"
+        tags:
+            - { name: doctrine.orm.entity_listener, entity: AC\BoutiqueBundle\Entity\UserToken, event: prePersist, method: generateToken }
+            - { name: doctrine.orm.entity_listener, entity: AC\BoutiqueBundle\Entity\UserToken, event: prePersist, method: generateDatetime }
+
+
+
+
+
+
+
+

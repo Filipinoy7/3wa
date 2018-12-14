@@ -1,0 +1,11 @@
+ac_formation:
+    resource: "@ACFormationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ac_plateforme:
+    resource: "@ACPlateformeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

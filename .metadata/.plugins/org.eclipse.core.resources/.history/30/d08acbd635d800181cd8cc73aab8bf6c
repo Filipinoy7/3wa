@@ -1,0 +1,198 @@
+<?php
+namespace Franck\EcommerceBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Franck\EcommerceBundle\Entity\UserAddress;
+use Franck\EcommerceBundle\Form\UserAddressType;
+use Symfony\Component\HttpFoundation\Request;                       // Pour recevoir les données POST
+
+use Proxies\__CG__\Franck\EcommerceBundle\Entity\Category;
+use Proxies\__CG__\Franck\EcommerceBundle\Entity\Product;
+
+class DefaultController extends Controller
+{
+	public function indexAction()
+	{
+//		return $this->render('FranckEcommerceBundle:Default:index.html.twig');
+//		return $this->render('@FranckEcommerce/Default/index.html.twig');
+		return $this->render('@FranckEcommerce/ecommerce/viewAll.html.twig');
+	}
+	public function addAddressAction(Request $request)
+	{
+	    //	    if (\is_null($this->getUser()))
+//	    if (\is_null($this->getUser()) || !$this->get('security.context')->isGranted('ROLE_CLIENT'))
+//        if (\is_null($this->getUser()) || !$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY'))
+        if (\is_null($this->getUser()) || !$this->get('security.authorization_checker')->isGranted('ROLE_CLIENT'))
+	        return $this->redirectToRoute('fos_user_security_login');
+	    else
+	    {
+    		$address=new UserAddress();
+    		$form=$this->get('form.factory')->create(UserAddressType::class, $address);
+    		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+    		{
+    		    $em=$this->getDoctrine()->getManager();
+    		    $address->setUser($this->getUser());
+    		    $em->persist($address);
+//    		    $this->getUser()->addAddress($address);
+//    		    $em->persist($this->getUser());
+    			$em->flush();
+    			$request->getSession()->getFlashBag()->add('notice', 'adresse bien enregistrée.');
+//  			return $this->redirectToRoute('franck_ecommerce_add_address', array('id' => $address->getId()));
+    		}
+    		
+    	    $em=$this->getUser()->getAddresses();
+    		$addresses=null;
+    		if (!\is_null($em[0]))
+    		{
+    		    for ($i=0; $i < \count($em); $i++)
+    		    {
+    		        $addresses[]=array(
+    //		            'id' => $em[$i]->getId(),
+    		            'name' => $em[$i]->getName(),
+    		            'firstname' => $em[$i]->getFirstname(),
+    		            'phone' => $em[$i]->getPhone(),
+    		            'address1' => $em[$i]->getAddress1(),
+    		            'address2' => $em[$i]->getAddress2(),
+    		            'zipcode' => $em[$i]->getZipcode(),
+    		            'city' => $em[$i]->getCity(),
+    		            'country' => $em[$i]->getCountry(),
+    		            'extra' => $em[$i]->getExtra(),
+    		            'alias' => $em[$i]->getAlias(),
+    		            'idBlock' => \uniqid('BAddr', true)
+    		        );
+    		    }
+    		}
+    		
+    		// Passage à twig
+    		return $this->render('@FranckEcommerce/ecommerce/address.html.twig', array('title' => 'adresses', 'addresses' => $addresses, 'form' => $form->createView()));
+	    }
+	}
+	public function addCategoryAction(Request $request)
+	{
+	    if (\is_null($this->getUser()) || !$this->get('security.authorization_checker')->isGranted('ROLE_CLIENT'))
+	        return $this->redirectToRoute('fos_user_security_login');
+        else
+        {
+            $em=$this->getDoctrine()->getManager();
+            $form=null;
+            if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))
+            {
+                $category=new Category();
+                $form=$this->get('form.factory')->create(CategoryType::class, $category);
+                if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+                {
+                    $em->persist($category);
+                    $em->flush();
+                    $request->getSession()->getFlashBag()->add('notice', 'catégorie bien enregistrée.');
+                }
+            }
+            $rep=$em->getRepository(Category::class)->findAll();
+            $categories=null;
+            if (!\is_null($rep[0]))
+            {
+                for ($i=0; $i < \count($rep); $i++)
+                {
+                    $categories[]=array(
+//		                'id' => $rep[$i]->getId(),
+                        'name' => $rep[$i]->getName(),
+                        'description' => $rep[$i]->getDescription()
+                    );
+                }
+            }
+            // Passage à twig
+            return $this->render('@FranckEcommerce/ecommerce/category.html.twig', array('title' => 'categories', 'categories' => $categories, 'form' => $form->createView()));
+        }
+	}
+	public function viewCategoryAction($id)
+	{
+	    if (\is_null($this->getUser()) || !$this->get('security.authorization_checker')->isGranted('ROLE_USER'))
+	        return $this->redirectToRoute('fos_user_security_login');
+        else
+        {
+            $entityCategory=$this->getDoctrine()->/*getManager()->*/getRepository(Category::class)->find($id);
+            $category=null;
+            if(!$entityCategory)
+            {
+                return $this->redirectToRoute('fos_user_security_login');
+            }
+                $category=array(
+                        'id' => $entityCategory->getId(),
+                        'name' => $entityCategory->getName(),
+                        'description' => $entityCategory->getDescription(),
+                        'imgAlt' => $entityCategory->getImage()->getAlt(),
+                        'imgPath' => $entityCategory->getImage()->getPath());
+//                $listProducts=$this->getDoctrine()->/*getManager()->*/getRepository(Product::class)->findAll();
+                $listProducts=$entityCategory->getProducts();
+                $products=null;
+                if($listProducts)
+                {
+                    for ($i=0; $i < \count($listProducts); $i++)
+                    {
+                        $products[$i]=array(
+                            'id' => $listProducts[$i]->getId(),
+                            'name' => $listProducts[$i]->getName(),
+                            'description' => $listProducts[$i]->getDescription(),
+                            'imgAlt' => $listProducts[$i]->getImage()->getAlt(),
+                            'imgPath' => $listProducts[$i]->getImage()->getPath(),
+                            'priceHT' => $listProducts[$i]->getPrice(),
+                            'stock' => $listProducts[$i]->getStock(),
+                            'taxLabel' => $listProducts[$i]->getTax()->getName(),
+                            'taxValue' => $listProducts[$i]->getTax()->getValue());
+                        $products[$i]['priceTTC']=$products[$i]['priceHT']+($products[$i]['priceHT']*$products[$i]['taxValue']/100);
+                    }
+                }
+                
+            }
+            
+            
+            $form=null;
+            if ($this->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))
+            {
+                $category=new Category();
+                $form=$this->get('form.factory')->create(CategoryType::class, $category);
+                if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+                {
+                    $em->persist($category);
+                    $em->flush();
+                    $request->getSession()->getFlashBag()->add('notice', 'catégorie bien enregistrée.');
+                }
+            }
+            $rep=$em->getRepository(Category::class)->findAll();
+            $categories=null;
+            if (!\is_null($rep[0]))
+            {
+                for ($i=0; $i < \count($rep); $i++)
+                {
+                    $categories[]=array(
+//		                'id' => $rep[$i]->getId(),
+                        'name' => $rep[$i]->getName(),
+                        'description' => $rep[$i]->getDescription()
+                    );
+                }
+            }
+            // Passage à twig
+            return $this->render('@FranckEcommerce/ecommerce/category.html.twig', array('title' => 'categories', 'categories' => $categories, 'form' => $form->createView()));
+        }
+	}
+	public function getCategories($limit=null)
+	{
+	    $this->getDoctrine()->getManager();
+	    $em=$this->getDoctrine()->getRepository(Category::class)->findAll();
+	    $categories=null;
+	    if (!\is_int($limit))      // if (\is_null($limit) || !\is_int($limit))
+	        $limit=\count($em);
+	    if (is_array($em))
+	    {
+	        for ($i=0; $i < $limit; $i++)
+	        {
+	            $categories[$i]=array(
+	                'id' => $em[$i]->getId(),
+	                'name' => $em[$i]->getName(),
+	                'description' => $em[$i]->getDescription(),
+	                'imgAlt' => $em[$i]->getImage()->getAlt(),
+	                'imgPath' => $em[$i]->getImage()->getPath());
+	        }
+	    }
+	    return $this->render('@FranckEcommerce/ecommerce/col-categories.html.twig', array('categories' => $categories));
+	}
+}

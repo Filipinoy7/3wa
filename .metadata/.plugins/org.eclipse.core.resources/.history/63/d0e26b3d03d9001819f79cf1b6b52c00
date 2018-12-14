@@ -1,0 +1,36 @@
+{% extends '@FranckEcommerce/layout.html.twig' %}
+{#% extends"::layout.html.twig" %#}
+
+{% block title %}{{ parent() }}-{{ title }}{% endblock %}
+{% block content %}
+	<h1>Votre panier</h1>
+	{% if cart is defined and cart is iterable %}
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Références</th>
+					<th>Quantité</th>
+					<th>Prix unitaire</th>
+					<th>Total HT</th>
+					<th>Total TTC</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for category, details in cart.details %}
+					<tr><td colspan="5">{{ category }}</td></tr>
+					{% for product, details in details %}
+						<tr>
+        					<td>{{ product }}</td>
+        					<td>{{ details.nbProducts }}</td>
+        					<td>{{ details.priceHT }}</td>
+        					<td>{{ details.subTotal }}</td>
+        					<td>{{ details.total }}</td>
+    					</tr>
+					{% endfor %}
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		Votre panier est vide
+	{% endif %}
+{% endblock %}

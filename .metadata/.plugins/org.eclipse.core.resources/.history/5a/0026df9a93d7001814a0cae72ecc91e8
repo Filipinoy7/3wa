@@ -1,0 +1,101 @@
+<?php
+namespace Franck\EcommerceBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use Franck\EcommerceBundle\Entity\User;
+
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
+{
+    public function load(ObjectManager $manager)
+    {
+        $user1=new User();
+        $user1->setUsername('Hades');
+        $user1->setEmail('franck.3wa@gmail.com');
+        $user1->setEnabled(true);
+        $user1->setPassword('$2y$13$uypsQUMJ0dXJCa8TGB7jdeNnq.X1wODX2YPVSCT9yTOyupUehSJxW');
+        $user1->setRoles(array(ROLE_SUPER_ADMIN));
+        $manager->persist($user1);
+        
+        $user2=new User();
+        $user2->setUsername('Nicolas');
+        $user2->setEmail('nicolas@gmail.com');
+        $user2->setEnabled(true);
+        $user2->setPassword($this->container->get('security.encoder_factory')->getEncoder($user2)->encodePassword('Nicolas', $user2->getSalt()));
+        $user2->setRoles(array());
+        $manager->persist($user2);
+        
+        $user3=new User();
+        $user3->setUsername('Armen');
+        $user3->setEmail('armen@gmail.com');
+        $user3->setEnabled(true);
+        $user3->setPassword($this->container->get('security.encoder_factory')->getEncoder($user3)->encodePassword('Armen', $user3->getSalt()));
+        $user3->setRoles(array());
+        $manager->persist($user3);
+        
+        $user4=new User();
+        $user4->setUsername('Cyril');
+        $user4->setEmail('cyril@gmail.com');
+        $user4->setEnabled(true);
+        $user4->setPassword($this->container->get('security.encoder_factory')->getEncoder($user4)->encodePassword('Cyril', $user4->getSalt()));
+        $user4->setRoles(array());
+        $manager->persist($user4);
+        
+        $user5=new User();
+        $user5->setUsername('Béatrix');
+        $user5->setEmail('beatrix@gmail.com');
+        $user5->setEnabled(true);
+        $user5->setPassword($this->container->get('security.encoder_factory')->getEncoder($user5)->encodePassword('Béatrix', $user5->getSalt()));
+        $user5->setRoles(array());
+        $manager->persist($user5);
+        
+        $user6=new User();
+        $user6->setUsername('Yann');
+        $user6->setEmail('yano.c@hotmail.com');
+        $user6->setEnabled(true);
+        $user6->setPassword($this->container->get('security.encoder_factory')->getEncoder($user6)->encodePassword('Yann', $user6->getSalt()));
+        $user6->setRoles(array());
+        $manager->persist($user6);
+        
+        $user7=new User();
+        $user7->setUsername('Severian');
+        $user7->setEmail('severian@gmail.com');
+        $user7->setEnabled(true);
+        $user7->setPassword($this->container->get('security.encoder_factory')->getEncoder($user7)->encodePassword('Severian', $user7->getSalt()));
+        $user7->setRoles(array());
+        $manager->persist($user7);
+        
+        $user8=new User();
+        $user8->setUsername('Mohamed');
+        $user8->setEmail('mohamed@gmail.com');
+        $user8->setEnabled(true);
+        $user8->setPassword($this->container->get('security.encoder_factory')->getEncoder($user8)->encodePassword('Mohamed', $user8->getSalt()));
+        $user8->setRoles(array());
+        $manager->persist($user8);
+        
+/*        $user=new User();
+        $user->setUsername('');
+        $user->setEmail('@gmail.com');
+        $user->setEnabled(true);
+        $user->setPassword('$2y$13$ec5fzbH1ot/iJzIpk7qnEuE3W2fd3vXGSlBANKhae2fq/sbIiSw56');
+        $user->setRoles($roles);
+        $manager->persist($user);*/
+        
+        $manager->flush();
+        
+        $this->addReference('user1', $user1);
+        $this->addReference('user2', $user2);
+        $this->addReference('user3', $user3);
+        $this->addReference('user4', $user4);
+        $this->addReference('user5', $user5);
+        $this->addReference('user6', $user6);
+        $this->addReference('user7', $user7);
+        $this->addReference('user8', $user8);
+    }
+    
+    public function getOrder()
+    {
+        return 3;
+    }
+}

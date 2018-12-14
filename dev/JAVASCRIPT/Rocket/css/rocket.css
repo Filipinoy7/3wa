@@ -1,0 +1,64 @@
+html {
+    background-color: #000033;
+}
+
+body {
+    margin: 0;
+}
+
+#moon {
+    position: absolute;
+    top:100px;
+    right:100px;
+    width:150px;
+}
+
+#firingButton {
+    
+    position: absolute;
+    left:100px;
+    bottom: 100px;
+    width:75px;
+    height:75px;
+}
+
+#firingButton img {
+    width: 100%;
+}
+
+#billboard {
+    position: absolute;
+    left:50px;
+    top:100px;
+    width: 314px;
+    height: 200px;
+    background-image: url('../images/billboard.png');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+#billboard span {
+    display: inline-block;
+    width: 100px;
+    height: 170px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    
+    font-size: 5rem;
+    line-height: 170px;
+    color: white;  
+}
+
+#rocket {
+    position: absolute;
+    bottom:0;
+    width:200px;
+    left: 50%;
+    transform: translate(-50%);
+    transition: bottom 15s ease;
+}
+
+#rocket.tookOff {
+    bottom: 2000px;
+}

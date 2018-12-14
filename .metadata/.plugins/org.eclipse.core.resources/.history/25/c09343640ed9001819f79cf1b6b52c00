@@ -1,0 +1,62 @@
+franck_ecommerce_homepage:
+    path:     /
+    defaults: { _controller: FranckEcommerceBundle:Default:index }
+
+franck_ecommerce_address_add:
+    path:     /adresses
+    defaults: { _controller: FranckEcommerceBundle:Default:addAddress }
+
+franck_ecommerce_category:
+    path:     /category/{id}
+    defaults: { _controller: FranckEcommerceBundle:Default:viewCategory }
+    requirements:
+        id: '\d+' # un nombre de n'importe quelle longueur
+
+franck_ecommerce_product:
+    path:     /product/{id}
+    defaults: { _controller: FranckEcommerceBundle:Default:viewProduct }
+    requirements:
+        id: '\d+' # un nombre de n'importe quelle longueur
+
+#franck_ecommerce_categoryName:
+#    path:     /category/{categoryName}
+#    defaults: { _controller: FranckEcommerceBundle:Default:addCategory }
+#    requirements:
+#        categoryName: '[a-zA-Z0-9\- ]+' # une chaine alphanumérique de n'importe quelle longueur
+
+franck_ecommerce_cart:
+    path:     /cart
+    defaults: { _controller: FranckEcommerceBundle:Default:viewCart }
+
+franck_ecommerce_cart_remove:
+    path:     /cart-remove/{idProduct}/{quantity}
+    defaults: { _controller: FranckEcommerceBundle:Default:removeFromCart,quantity: null}
+    requirements:
+        idProduct: '\d+' # un nombre de n'importe quelle longueur
+
+franck_ecommerce_invoice:
+    path:     /invoice
+    defaults: { _controller: FranckEcommerceBundle:Default:viewInvoices }
+
+
+
+franck_ecommerce_404:
+    path:     /404
+    defaults: { _controller: FranckEcommerceBundle:Error:lost }
+
+
+
+
+franck_ecommerce_cgv:
+    path:     /cgv
+    defaults: { _controller: FranckEcommerceBundle:Default:cgv }
+
+
+franck_ecommerce_legal:
+    path:     /legal
+    defaults: { _controller: FranckEcommerceBundle:Default:legal }
+
+
+
+
+

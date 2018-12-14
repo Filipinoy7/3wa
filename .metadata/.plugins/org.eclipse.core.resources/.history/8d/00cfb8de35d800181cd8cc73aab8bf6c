@@ -1,0 +1,24 @@
+<?php
+namespace Franck\EcommerceBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Franck\EcommerceBundle\Entity\UserAddress;
+use Franck\EcommerceBundle\Form\UserAddressType;
+use Symfony\Component\HttpFoundation\Request;                       // Pour recevoir les données POST
+
+use Proxies\__CG__\Franck\EcommerceBundle\Entity\Category;
+use Proxies\__CG__\Franck\EcommerceBundle\Entity\Product;
+
+class DefaultController extends Controller
+{
+	public function indexAction()
+	{
+//		return $this->render('FranckEcommerceBundle:Default:index.html.twig');
+//		return $this->render('@FranckEcommerce/Default/index.html.twig');
+		return $this->render('@FranckEcommerce/Errors/labyrinth.html.twig');
+	}
+	public function lostAction()
+	{
+	return $this->render('@FranckEcommerce/Errors/labyrinth.html.twig');
+	}
+}

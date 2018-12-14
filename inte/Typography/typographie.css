@@ -1,0 +1,79 @@
+@font-face {
+	font-family:"cardo";
+	src:url(fonts/cardo/cardo-regular.woff);
+}
+@font-face {
+	font-family:"cardo";
+	font-style:italic;
+	src:url(fonts/cardo/cardo-italic.woff);
+}
+@font-face {
+	font-family:"cardo";
+	font-style:bold;
+	src:url(fonts/cardo/cardo-bold.woff);
+}
+@font-face {
+	font-family:"Blacksword";
+	src:url(fonts/Blacksword.otf);
+}
+h1 {
+	font-family:"Blacksword";
+	font-size:4em;
+	text-align:center;
+
+	}
+h2 {
+	font-family:"Blacksword";
+	font-size:2.5em;
+	word-spacing:25px;
+}
+h3 {
+	font-family:"Blacksword";
+	font-size:1.5em;
+	word-spacing:10px;
+}
+p {
+	font-family:;
+	text-align:justify;
+}
+body {
+	opacity:0.4;
+	background-image:url("images/bunting.png");
+	background-repeat:repeat-x;
+	margin-top:100px;
+	margin-right:400px;
+	margin-left:400px;
+	font-size:1.4em;
+	line-height:50px;
+	text-indent:25px;
+	font-style:normal;
+	font-family:"cardo";
+	width:50%;
+	max-width:800px;
+}
+a {
+	color:#FF69B4;
+}
+.antoine {
+	text-align:right;
+	font-size:15px;
+}
+.vingt {
+	text-align:center;
+}
+.gris {
+	color:#FFB6C1;
+}
+.col {
+	color:#FFB6C1;
+}
+
+.onze {
+	text-align: center;
+	font-size:15px;
+	line-height:20px;
+}
+.onze img {
+	height:auto;
+	width:140px;
+}

@@ -1,0 +1,35 @@
+{% extends '@FranckEcommerce/layout.html.twig' %}
+{#% extends"::layout.html.twig" %#}
+
+{% block title %}{{ parent() }}-page test{% endblock %}
+{% block content %}
+	<div class="span4">
+    	<h2>Mes adresses</h2>
+    	{% if addresses is defined and addresses is iterable %}
+    		liste des adresses
+    		{% for address in addresses %}
+    			<h3 class="clickable" onclick="javascript:ShowHidd('{{ address.idBlock }}')">{{ address.alias }}</h3>
+    			<div id="{{ address.idBlock }}" class="hidd">
+        			<p class="my-1">Destinataire: {{ address.firstname|title }} {{ address.name|upper }}</p>
+        			<p class="my-1">Téléphone: {{ address.phone }}</p>
+        			<p class="my-1">Adresse:</p>
+        			<p class="my-1">{{ address.address1 }}</p>
+        			<p class="my-1">{{ address.address2 }}</p>
+        			<p class="my-1">{{ address.zipcode|upper }} {{ address.city|title }}</p>
+        			<p class="my-1">{{ address.country|upper }}</p>
+        			{% if address.extra is defined and address.extra != '' %}
+        				<p class="my-1">Informations complémentaires:</p>
+        				<p class="my-1">{{ address.extra }}</p>
+        			{% endif %}
+    			</div>
+    		{% endfor %}
+    	{% else %}
+    		<p class="my-1">Aucune adresse enregistrée</p>
+        {% endif %}
+    </div>
+	<div class="span4">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

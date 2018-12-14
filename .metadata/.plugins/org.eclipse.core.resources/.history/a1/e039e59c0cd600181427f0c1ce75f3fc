@@ -1,0 +1,123 @@
+<?php
+
+namespace Franck\EcommerceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
+/**
+ * User
+ *
+ * @ORM\Table(name="my_user")
+ * @ORM\Entity(repositoryClass="Franck\EcommerceBundle\Repository\UserRepository")
+ */
+class User extends BaseUser
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Franck\EcommerceBundle\Entity\Command", mappedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $commands;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Franck\EcommerceBundle\Entity\UserAddress", mappedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $addresses;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->commands = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add command
+     *
+     * @param \Franck\EcommerceBundle\Entity\Command $command
+     *
+     * @return User
+     */
+    public function addCommand(\Franck\EcommerceBundle\Entity\Command $command)
+    {
+        $this->commands[] = $command;
+
+        return $this;
+    }
+
+    /**
+     * Remove command
+     *
+     * @param \Franck\EcommerceBundle\Entity\Command $command
+     */
+    public function removeCommand(\Franck\EcommerceBundle\Entity\Command $command)
+    {
+        $this->commands->removeElement($command);
+    }
+
+    /**
+     * Get commands
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommands()
+    {
+        return $this->commands;
+    }
+
+    /**
+     * Add address
+     *
+     * @param \Franck\EcommerceBundle\Entity\UserAddress $address
+     *
+     * @return User
+     */
+    public function addAddress(\Franck\EcommerceBundle\Entity\UserAddress $address)
+    {
+        $this->addresses[] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Remove address
+     *
+     * @param \Franck\EcommerceBundle\Entity\UserAddress $address
+     */
+    public function removeAddress(\Franck\EcommerceBundle\Entity\UserAddress $address)
+    {
+        $this->addresses->removeElement($address);
+    }
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+}

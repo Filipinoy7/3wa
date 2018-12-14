@@ -1,0 +1,51 @@
+<?php
+
+namespace Franck\EcommerceBundle\Form;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
+class UserAddressType extends AbstractType
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+//        $builder->add('name')->add('firstname')->add('phone')->add('address1')->add('address2')->add('zipcode')->add('city')->add('country')->add('extra')->add('user');
+        $builder
+            ->add('alias', TextType::class, array('label' => 'Alias (ex: bureau, maison, etc...)'))
+            ->add('name', TextType::class, array('label' => 'Nom'))
+            ->add('firstname', TextType::class, array('label' => 'Prénom'))
+            ->add('phone', TextType::class, array('label' => 'Téléphone'))
+            ->add('address1', TextType::class, array('label' => 'Adresse'))
+            ->add('address2', TextType::class, array('label' => 'Complément d\'adresse', 'required' => false))
+            ->add('zipcode', TextType::class, array('label' => 'Code postal'))
+            ->add('city', TextType::class, array('label' => 'Ville'))
+            ->add('country', TextType::class, array('label' => 'Pays'))
+            ->add('extra', TextareaType::class, array('label' => 'Informations complémentaires (code porte, ...)'));
+        $builder->add('save', SubmitType::class, array('label' => 'sauvegarder'));
+    }/**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Franck\EcommerceBundle\Entity\UserAddress'
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'franck_ecommercebundle_useraddress';
+    }
+
+
+}

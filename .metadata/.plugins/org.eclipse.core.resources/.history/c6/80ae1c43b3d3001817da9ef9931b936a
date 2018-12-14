@@ -1,0 +1,193 @@
+<?php
+namespace AC\BoutiqueBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use AC\BoutiqueBundle\Entity\Category;
+use AC\BoutiqueBundle\Entity\Product;
+use AC\BoutiqueBundle\Form\ProductType;
+use AC\BoutiqueBundle\Entity\UserToken;
+use AC\BoutiqueBundle\Form\UserTokenType;
+use AC\BoutiqueBundle\Event\UserTokenEvent;
+use AC\BoutiqueBundle\Event\AccountEvents;
+use AC\BoutiqueBundle\Entity\User;
+use AC\BoutiqueBundle\Event\UserEvent;
+
+class DefaultController extends Controller
+{
+    public function indexAction()
+    {
+//        return $this->render('ACBoutiqueBundle:Default:index.html.twig');
+        $nbIdeas=3;
+        $categories=$this->getDoctrine()->getRepository(Category::class)->findAll();
+        $categoriesList=array();
+        for ($i=0; $i < \count($categories); $i++)
+        {
+            $categoriesList[]=array(
+                'id' => $categories[$i]->getId(), 
+                'name' => $categories[$i]->getName(), 
+                'content' => $categories[$i]->getContent(),
+                'nbProducts' => \count($categories[$i]->getProducts()));
+        }
+        
+        $products=$this->getDoctrine()->getRepository(Product::class)->findAll();
+        $productsList=array();
+        for ($i=0; $i < \count($products); $i++)
+        {
+            $productsList[]=array(
+                'id' => $products[$i]->getId(),
+                'name' => $products[$i]->getName(),
+                'content' => $products[$i]->getContent(),
+                'price' => $products[$i]->getPrice(),
+                'stock' => $products[$i]->getStockStatut(),
+                'urlImg' => $products[$i]->getUrlImg(),
+                'altImg' => $products[$i]->getAltImg(),
+                'categoryId' => $products[$i]->getCategory()->getId(),
+                'category' => $products[$i]->getCategory()->getName());
+        }
+        
+        $ideas=array();
+        for ($i=0; $i < $nbIdeas; $i++)
+        {
+            $ideas[]=$productsList[rand(0, (count($productsList)-1))];
+        }
+        
+        unset($categories, $products, $productsList);
+        return $this->render('@ACBoutique/Default/index.html.twig', array('tabCat' => $categoriesList, 'tabIdeas' => $ideas));
+    }
+    public function viewCategoryAction($category)
+    {
+        $cat=$this->getDoctrine()->getRepository(Category::class)->findOneByName($category);
+        if(!\is_null($cat))
+        {
+            $category=array(
+                'id' => $cat->getId(),
+                'name' => $cat->getName(),
+                'content' => $cat->getContent());
+            $products=$cat->getProducts();
+            $productsList=array();
+            for ($i=0; $i < \count($products); $i++)
+            {
+                $productsList[$i]=array(
+                    'id' => $products[$i]->getId(),
+                    'name' => $products[$i]->getName(),
+                    'content' => $products[$i]->getContent(),
+                    'price' => $products[$i]->getPrice(),
+                    'stock' => $products[$i]->getStockStatut(),
+                    'urlImg' => $products[$i]->getUrlImg(),
+                    'altImg' => $products[$i]->getAltImg());
+                if(strlen($productsList[$i]['content']) > 150)
+                    $productsList[$i]['content']=substr($products[$i]->getContent(), 0, 150).'…';
+            }
+            unset($products);
+        }
+        else
+            return $this->render('@ACBoutique/Default/404.html.twig');
+        return $this->render('@ACBoutique/Default/viewCategory.html.twig', array('category' => $category, 'tabProducts' => $productsList));
+    }
+    public function viewProductAction($category, $product)
+    {
+        $prod=$this->getDoctrine()->getRepository(Product::class)->findOneByName($product);
+        if(!\is_null($prod))
+        {
+            $product=array(
+                'id' => $prod->getId(),
+                'name' => $prod->getName(),
+                'content' => $prod->getContent(),
+                'price' => $prod->getPrice(),
+                'stock' => $prod->getStockStatut(),
+                'urlImg' => $prod->getUrlImg(),
+                'altImg' => $prod->getAltImg(),
+                'category' => $prod->getCategory()->getName());
+        }
+        else
+            return $this->render('@ACBoutique/Default/404.html.twig');
+        return $this->render('@ACBoutique/Default/viewProduct.html.twig', array('product' => $product));
+    }
+    public function addProductAction(Request $request)
+    {
+        $product=new Product();
+        $form=$this->get('form.factory')->create(ProductType::class, $product);
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        {
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($product);
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('notice', 'Produit enregistrée.');
+            
+            return $this->redirectToRoute('ac_boutique_product', array('category' => $product->getCategory(), 'product' => $product->getName()));
+        }
+        return $this->render('@ACBoutique/Default/addProduct.html.twig', array('form' => $form->createView(), 'libelleForm' => 'Créer un nouveau produit'));
+    }
+    public function lostPasswordAction(Request $request)
+    {
+        $userToken=new UserToken();
+//        $userToken=new UserToken($this->get('Franck_TokenGenerator'));
+        
+        /* ************************** *
+         * Version avec des listeners *
+         * ************************** * /
+        // Création de l'évenement
+        $userTokenEvent=new UserTokenEvent($userToken->getToken(), $userToken->getExpirationDate());
+        // Déclenchement de l'évenement
+        $this->get('event_dispatcher')->dispatch(AccountEvents::NEED_A_TOKEN, $userTokenEvent);
+        
+//        var_dump($this->get('event_dispatcher')->getListeners());
+        
+        // Récup des infos de l'évenement
+        $userToken->setToken($userTokenEvent->getToken());
+        $userToken->setExpirationDate($userTokenEvent->getExpDate());
+        var_dump($userToken);
+        /* ****************************** *
+         * Fin version avec des listeners *
+         * ****************************** */
+        
+        /* ************************* *
+         * Version avec des services *
+         * ************************* * /
+        $token=$this->get('Franck_TokenGenerator')
+            ->setTokenLength('230')
+            ->setPrefix('')
+            ->generate()
+            ->getToken();
+        
+        $delay=$this->get('Franck_GetDelayFromNow')
+            ->generate()
+            ->getNewDate();
+        
+        $userToken->setToken($token);
+        $userToken->setExpirationDate($delay);
+        var_dump($userToken);
+        /* ***************************** *
+         * Fin version avec des services *
+         * ***************************** */
+        
+        $form=$this->get('form.factory')->create(UserTokenType::class, $userToken);
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        {
+            /* ************************** */
+            /* Version avec des listeners */
+            /* ************************** */
+            // Création de l'évenement
+//            $userEvent=new UserEvent($this->getDoctrine()->getManager());
+            $userEvent=new UserEvent($userToken->getUserEmail());
+            // Déclenchement de l'évenement
+            $this->get('event_dispatcher')->dispatch(AccountEvents::PASSWORD_FORGOT, $userEvent);
+            // Récup des infos de l'évenement
+            var_dump($userEvent);
+            if($userEvent->getUserExist() && $userEvent->getCanCreateToken())
+            {
+                $em=$this->getDoctrine()->getManager();
+                $em->persist($userToken);
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('notice', 'email envoyé.');
+//            return $this->redirectToRoute('ac_boutique_product', array('category' => $product->getCategory(), 'product' => $product->getName()));
+            }
+            else
+                
+        }
+        
+        
+        return $this->render('@ACBoutique/Default/lostPassword.html.twig', array('form' => $form->createView(), 'libelleForm' => 'Mot de passe perdu?'));
+    }
+}

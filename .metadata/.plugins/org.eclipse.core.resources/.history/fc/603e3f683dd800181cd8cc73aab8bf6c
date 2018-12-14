@@ -1,0 +1,34 @@
+{% extends '@FranckEcommerce/layout.html.twig' %}
+{#% extends"::layout.html.twig" %#}
+
+{% block title %}{{ parent() }}-{{ title }}{% endblock %}
+{% block content %}
+	{% if category is defined %}
+    	<img src="{{ category.imgPath }}" class="img-fluid" alt="{{ category.imgAlt }}" />
+    	<h3>{{ category.name }}</h3>
+    	<hr />
+    	{% if products is defined and products is iterable %}
+        	<div class="span9">
+            	<ul class="thumbnails">
+            		{% for product in products %}
+                		<li >
+                			<div class="thumbnail">
+                				<img src="{{ product.imgPath }}" alt="{{ product.imgAlt }}" width="300" height="300" >
+                				<div class="caption">
+                					<h4>{{ product.name }}</h4>
+                					<p>{{ product.priceTTC }}</p>
+                					<a class="btn btn-primary" href="/produit/23">Plus d'infos</a>
+                					<a class="btn btn-success" href="/ajouter/23">Ajouter au panier</a>
+                				</div>
+                			</div>
+                		</li>
+            		{% endfor %}
+            	</ul> 
+            </div>
+        {% else %}
+        	Aucun produits dans cette catégorie
+        {% endif %}
+    {% else %}
+    	Categorie non trouvée
+    {% endif %}
+{% endblock %}

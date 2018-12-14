@@ -1,0 +1,11 @@
+franck_ecommerce_homepage:
+    path:     /
+    defaults: { _controller: FranckEcommerceBundle:Default:index }
+
+
+
+
+
+
+
+

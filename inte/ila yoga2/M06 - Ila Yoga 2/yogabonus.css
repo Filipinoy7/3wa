@@ -1,0 +1,82 @@
+* {
+	box-sizing: border-box;
+}
+header h1 {
+	background-color: #C13E21;
+	color: white;
+	padding:5px 20px 5px 20px;
+	width: 20%;
+	float: left;
+}
+.weknow {
+	width: 70%;
+	float: left;
+}
+body {
+
+}
+main {
+	background-color: #EBEAD8;
+}
+.customers {
+	width: 30%;
+	float: left;
+	padding: 20px;
+}
+.choose {
+	width: 30%;
+	float: left;
+	padding: 20px;
+}
+.headlines {
+	width: 30%;
+	float: left;
+	padding: 20px;
+}
+.clear {
+	clear: both;
+	padding: 20px;
+}
+.solutions {
+	width: 30%;
+	float: left;
+	padding: 20px;
+}
+.services {
+	width: 30%;
+	float: left;
+	padding: 20px;
+}
+.releases {
+	width: 30%;
+	float: left;
+	padding: 20px;
+}
+aside {
+	float: left;
+	padding: 20px;
+	background-color: #C13E21;
+}
+.valdis {
+	float: right;
+}
+a {
+	color :#D38661;
+}
+section {
+	background-color: #DAD4BB;
+}
+footer a, footer p {
+	float: left;
+}
+.discover {
+	background-image: url("images/people.jpg");
+}
+nav a {
+	background-color: #EBEAD8;
+	text-decoration: none;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 40px;
+	padding-left: 40px;
+}

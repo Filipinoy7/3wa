@@ -1,0 +1,250 @@
+<?php
+
+namespace Franck\EcommerceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Product
+ *
+ * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="Franck\EcommerceBundle\Repository\ProductRepository")
+ */
+class Product
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price", type="decimal", precision=6, scale=2)
+     * @Assert\NotBlank()
+     */
+    private $price;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="stock", type="integer")
+     */
+    private $stock=0;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Franck\EcommerceBundle\Entity\Media", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $image;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Franck\EcommerceBundle\Entity\Category", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Franck\EcommerceBundle\Entity\Tax", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $tax;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Product
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Product
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     *
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set stock
+     *
+     * @param integer $stock
+     *
+     * @return Product
+     */
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
+    /**
+     * Get stock
+     *
+     * @return int
+     */
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Franck\EcommerceBundle\Entity\Media $image
+     *
+     * @return Product
+     */
+    public function setImage(\Franck\EcommerceBundle\Entity\Media $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Franck\EcommerceBundle\Entity\Media
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Franck\EcommerceBundle\Entity\Category $category
+     *
+     * @return Product
+     */
+    public function setCategory(\Franck\EcommerceBundle\Entity\Category $category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Franck\EcommerceBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set tax
+     *
+     * @param \Franck\EcommerceBundle\Entity\Tax $tax
+     *
+     * @return Product
+     */
+    public function setTax(\Franck\EcommerceBundle\Entity\Tax $tax)
+    {
+        $this->tax = $tax;
+
+        return $this;
+    }
+
+    /**
+     * Get tax
+     *
+     * @return \Franck\EcommerceBundle\Entity\Tax
+     */
+    public function getTax()
+    {
+        return $this->tax;
+    }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+</head>
+<body>
+    <h1>TableauMultiplications</h1>
+    <script src="TableDeMultiplications.js"></script>
+</body>
+</html>
+
+<!--var size;
+var column;
+var row;
+
+size = parseInt(window.prompt("Saisissez la taille du tableau"));
+
+document.write("<table>");
+
+for (column = 1; column <= size; column++) {
+	document.write("<tr>");
+	for (row = 1; row <= size; row ++) {
+		document.write('<td>');
+		var result = row*column;
+		document.write(result);
+		document.write('</td>');
+	}
+	document.write("</tr>");
+}
+
+document.write("</table>"); !-->
+
+<!--------- index.html ----------->
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Table des Multiplications</h1>
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+<!--------- index.css ----------->
+
+<style>
+
+table
+{
+    font-family: "Courier New", monospace;
+}
+table td
+{
+    /* structure */
+    height: 2em;
+    width: 2em;
+
+    /* presentation */
+    background-color: lightblue;
+    text-align: center;
+}
+table td.same-number
+{
+    background-color: midnightblue;
+    color: white;
+}
+table td:hover
+{
+    background-color: lightcyan;
+    color: red;
+    cursor: default;
+}
+
+
+</style>
+
+
+<!--------- index.js ----------->
+
+<script>
+
+var column;
+var row;
+var size;
+
+size = parseInt(window.prompt('choisir la taille de la table'));
+
+document.write('<table>');
+
+for (row = 1; row <= size;  row ++) {
+	
+    document.write('<tr>');
+    
+    for (column = 1; column <= size; column++) {
+    		
+            var result = row * column;
+            
+            if (row == column) {
+            
+            	document.write('<td class="same-number">');
+           
+            
+            } else {
+            
+            	document.write('<td>');
+            
+            }
+            
+            document.write(result);
+
+    		document.write('</td>');
+    }
+    
+    
+	document.write('</tr>');
+
+}
+
+
+document.write('</table>');
+
+
+
+
+</script>

@@ -1,0 +1,32 @@
+.un {
+	color:red;
+}
+.deux {
+	color:blue;
+}
+.trois {
+	color:green;
+}
+.quatre {
+	background-color:red;
+}
+.cinq {
+	background-color:blue;
+}
+.six {
+	background-color:green;
+}
+.sept {
+	font-family:Arial;
+}
+.huit {
+	font-family:monospace;
+}
+.onze {
+	text-align:center;
+	font-size:10px;
+}
+.onze img {
+	height:60px;
+	width:140px;
+}

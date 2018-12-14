@@ -1,0 +1,20 @@
+    	{% if cart is defined and cart is iterable %}
+    		<div class="well">
+    			<div class="dropdown">
+    				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    					<i class="icon-shopping-cart"></i>
+    					{{ cart.nbItems }} item - {{ cart.subTotal }} €
+    					<b class="caret"></b>
+    				</a>
+    				<div class="dropdown-menu well" role="menu" aria-labelledby="dLabel">
+    					{% for category, details in cart.details %}
+    						<p>{{ category }}</p>
+    						{% for product, details in details %}
+    							<p>{{ product }} x {{ details.nbProducts }} <span class="pull-right">{{ details.subTotal }} €</span></p>
+    						{% endfor %}
+    					{% endfor %}
+    					<a href="{{ url('franck_ecommerce_cart') }}" class="btn btn-primary">Mon Panier</a>
+    				</div>
+    			</div>
+    		</div>
+		{% endif %}

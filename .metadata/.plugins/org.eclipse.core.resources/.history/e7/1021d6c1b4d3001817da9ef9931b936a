@@ -1,0 +1,38 @@
+<?php
+namespace AC\BoutiqueBundle\EventListener;
+use AC\BoutiqueBundle\Event\UserEvent;
+use AC\BoutiqueBundle\Entity\User;
+use AC\BoutiqueBundle\Entity\UserToken;
+class UserListener
+{
+    protected $em;
+    
+    public function __construct($entity_manager)
+    {
+        $this->em=$entity_manager;
+    }
+    
+    public function checkUser(UserEvent $userEvent)
+    {
+        die('ok');
+        $user=$this->em->getRepository(User::class)->findOneByEmail($userEvent->getEmail());
+        
+        if(!is_null($user->getEmail()))
+            $userEvent->setUserExist(true);
+        else
+            $userEvent->setUserExist(false);
+    }
+    
+    public function checkUserToken(UserEvent $userEvent)
+    {
+        $userTokens=$this->em->getRepository(UserToken::class)->findAllByUserEmail($userEvent->getEmail());
+        $now=new \DateTime('now');
+        for ($i=0; $i < \count($userTokens); $i++)
+        {
+//            $diff=$userTokens[$i]->getExpirationDate()->diff($now);
+            if($userTokens[$i]->getExpirationDate() > $now)
+                $userEvent->setCanCreateToken(false);
+        }
+        $userEvent->setCanCreateToken(true);
+    }
+}

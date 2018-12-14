@@ -1,0 +1,114 @@
+body {
+	background-image:url("img/fond.png")
+}
+h2 {
+	color: #B7CA3C;
+	margin-top: 0px;
+	padding-top: 20px;
+}
+.bod {
+	background-color: white;
+	margin: auto;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.bod img {
+	display: inline;
+	float: left;
+	padding-left: 15px;
+	height: 125px;
+	width: 275px;
+	padding-right: 15px;
+}
+.centre {
+	margin: auto;
+	width: 50%;
+	box-sizing: border-box;
+	display: block;
+}
+.rtysjsty {
+	text-align: right;
+}
+.rtysjsty a {
+	background-color: #B7CA3C;
+	color:white;
+	padding: 15px 15px;
+	display: inline-block;
+	font-size: 16px;
+	margin-bottom: 20px;
+	text-decoration: none;
+}
+p {
+	font-size: 15px;
+}
+header {
+	background-color: #B7CA3C;
+	box-sizing: border-box;*
+	float: left;
+	display:block;
+}
+.liens {
+	padding-right: 5%;
+	text-align: right;
+	margin-top: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 50px;
+	color: #586A37;
+	margin-top: -72px;
+}
+div {
+	display: block;
+}
+.liens a {
+	padding-bottom: 20px;
+	padding-right: 20px;
+	text-transform: uppercase;
+}
+li {
+	font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.onze {
+	text-align: center;
+	font-size:15px;
+	line-height:20px;
+}
+.onze img {
+	height:auto;
+	width:140px;
+}

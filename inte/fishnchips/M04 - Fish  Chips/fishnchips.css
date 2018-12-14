@@ -1,0 +1,157 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	background-image:url("img/fond.png")
+}
+
+header {
+	background-color: #00B1B2;
+	text-align: center;
+	margin-top: 30px;
+	border-color: #008989;
+	border-width: 5px;
+	border-style: solid;
+	margin-left: -15px;
+    margin-right: -15px;
+}
+
+header a {
+	 margin-right: auto;
+	 padding-top: 25px;
+	 padding-left: 15px;
+	 color: white;
+	 text-decoration: none;
+	 font-family: 'Slabo 27px', serif;
+}
+
+main {
+	text-align: center;
+	width: 50%;
+	max-width: 900px;
+	margin: auto;
+
+}
+
+section {
+	width: 65%;
+	float: left;
+	background-color: #B2DDDB;
+	margin-bottom: 40px;
+	margin-right: 20px;
+	padding-bottom: 40px;
+	padding-left: auto;
+}
+
+.fish {
+	width: 49%;
+	float: left;
+	padding-right: 5px;
+	margin-left: 5px;
+}
+
+.fisher {
+	width: 49%;
+	float: left;
+}
+
+aside {
+	width: 25%;
+	float: left;
+	background-color: #22AFB0;
+	border-color: #008989;
+	border-width: 5px;
+	border-style: solid;
+}
+
+.fishbord {
+	float: left;
+	border-radius: 50%;
+}
+
+.fisherbord {
+	float:left;
+	border-radius: 50%;
+}
+
+.welcome {
+	padding-left: 130px;
+	padding-right: 180px;
+}
+
+section a {
+	background-color: #22AFB0;
+	text-decoration: none;
+	padding: 10px 15px;
+	color: white;
+	float: right;
+
+}
+
+aside p {
+	color: white;
+}
+
+aside a {
+	text-decoration: none;
+	color: #98d3d3;
+}
+
+p {
+	opacity: 0.6;
+	font-size: 1em;
+	font-family: "Open Sans", sans-serif;
+}
+
+aside img {
+	margin-top: -70px;
+	margin-left: 140px;
+}
+
+span {
+	color: #58C0BF;
+}
+
+h3 i {
+	color: #58C0BF;
+}
+
+.clear {
+	clear: both;
+}
+
+h1 {
+	font-size: 2.5em;
+	font-family: "Slabo 27px", serif;
+}
+
+h2 {
+	font-size: 3.5em;
+	font-family: "Slabo 27px", serif;
+}
+
+.onze {
+	text-align: center;
+	font-size:15px;
+	line-height:20px;
+}
+
+.onze img {
+	height:auto;
+	width:140px;
+}
+
+h3 {
+	font-size: 1.8em;
+	font-family: "Slabo 27px", serif;
+}
+
+h4 {
+	font-size: 1.4em;
+	font-family: "Slabo 27px", serif;
+}
+
+h1, h2, h3, h4 {
+	font-weight: normal;
+	opacity: 0.6;
+}

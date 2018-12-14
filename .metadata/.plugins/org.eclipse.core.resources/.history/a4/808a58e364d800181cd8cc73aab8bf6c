@@ -1,0 +1,18 @@
+    	{% if cart is defined and cart is iterable %}
+    		{{ dump(cart) }}
+{#}    		<div class="well">
+    			<div class="dropdown">
+    				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    					<i class="icon-shopping-cart"></i>
+    					{{ cart.nbItems }} item - {{ cart.SubTotal }} €
+    					<b class="caret"></b>
+    				</a>
+    				<div class="dropdown-menu well" role="menu" aria-labelledby="dLabel">
+    					{% for product, details in cart.details %}
+    						<p>{{ product }} x {{ details.nbProducts }} <span class="pull-right">{{ details.subTotal }} €</span></p>
+    					{% endfor %}
+    					<a href="panier.php" class="btn btn-primary">Mon Panier</a>
+    				</div>
+    			</div>
+    		</div>
+		{% endif %}#}

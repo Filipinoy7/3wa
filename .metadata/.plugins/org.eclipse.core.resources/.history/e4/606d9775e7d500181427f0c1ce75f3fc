@@ -1,0 +1,57 @@
+{#% extends '@ECommerce/layout.html.twig' %#}
+{% extends"::layout.html.twig" %}
+
+{% block title %}{{ parent() }}-page test{% endblock %}
+
+{#% block body %}
+	{% block header %}{{ parent() }}{% endblock %}
+	<hr />
+	{% block col-left %}{{ parent() }}{% endblock %}
+	
+	
+	{% block content %}
+	
+	
+	<div class="row my-4">
+		<div class="col">
+			<h1 class="mb-4">test</h1>
+			<div class="row">
+				{% for product in tabProducts %}
+					<div class="col-sm-4 mb-5">
+						<div class="row">
+							<div class="col-sm-4">
+								{% if product.urlImg != '' %}
+								<img src="{{ product.urlImg }}" class="img-fluid" alt="{{ product.altImg }}" width="210px" height="210px" />
+                            	{% else %}
+                            		<im	g src="{{ asset('img/400x400.jpg') }}" class="img-fluid" alt="{{ product.altImg }}" />
+                            	{% endif %}
+							</div>
+							<div class="col-sm-8">
+								<h3>{{ product.name }}</h3>
+								<p class="h5 my-2">{{ product.price }}€</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<p class="my-1">{{ product.content }}</p>
+								<p>
+									<a href="{{ url('ac_boutique_product', { 'category':category.name, 'product':product.name }) }}" class="btn btn-primary">
+										<span class="fas fa-eye"></span>
+										Consult
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+				blabla
+			</div>
+		</div>
+	</div>
+	
+	{% endblock %}
+	
+	
+	
+	{% block footer %}{{ parent() }}{% endblock %}
+{% endblock %#}

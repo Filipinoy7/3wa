@@ -1,0 +1,147 @@
+.container {
+	
+}
+
+ul {
+	margin: 2em 0;
+	padding: 0;
+	list-style-type: none;
+	border: 1px solid black;
+
+}
+
+li {
+	padding: 1em;
+}
+li:first-child {
+	background-color: green;
+}
+li:nth-child(2) {
+	background-color: pink;
+}
+li:nth-child(3) {
+	background-color: blue;
+}
+li:nth-child(4) {
+	background-color: grey;
+}
+li:nth-child(5) {
+	background-color: yellow;
+}
+li:nth-child(6) {
+	background-color: purple;
+}
+
+.test1 {
+	display: flex;
+}
+
+
+.test2 {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+
+.test3 {
+	display: flex;
+	flex-direction: column;
+}
+
+
+.test4 {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+
+.test5 {
+	display: flex;
+	width: 200px;
+	flex-wrap: nowrap;
+}
+
+
+.test6 {
+	display: flex;
+	width: 200px;
+	flex-wrap: wrap;
+}
+
+
+.test7 {
+	display: flex;
+	align-items: center;
+}
+.test7 li:nth-child(odd) {
+	line-height: 4em;
+}
+
+
+.test8 {
+	display: flex;
+	align-items: flex-start;
+}
+.test8 li:nth-child(odd) {
+	line-height: 4em;
+}
+
+
+.test9 {
+	display: flex;
+	align-items: flex-end;
+}
+.test9 li:nth-child(odd) {
+	line-height: 4em;
+}
+
+
+.test10 {
+	display: flex;
+	justify-content: center;
+}
+.test11 {
+	display: flex;
+	justify-content: flex-start;
+}
+.test12 {
+	display: flex;
+	justify-content: flex-end;
+}
+.test13 {
+	display: flex;
+	justify-content: space-between;
+}
+.test14 {
+	display: flex;
+	justify-content: space-around;
+}
+.test15 {
+	display: flex;
+	
+}
+.test15 li:nth-child(1){
+	order: 4;
+}
+.test15 li:nth-child(2){
+	order: 5;
+}
+
+.test15 li:nth-child(3){
+	order: 6;
+}
+.test15 li:nth-child(4){
+	order: 3;
+}
+
+.test15 li:nth-child(5){
+	order: 1;
+}
+
+.test15 li:nth-child(6){
+	order: 2;
+}
+
+
+
+

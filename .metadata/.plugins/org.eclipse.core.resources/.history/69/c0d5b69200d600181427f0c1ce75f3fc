@@ -1,0 +1,314 @@
+<?php
+
+namespace Franck\EcommerceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UserAddress
+ *
+ * @ORM\Table(name="user_address")
+ * @ORM\Entity(repositoryClass="Franck\EcommerceBundle\Repository\UserAddressRepository")
+ */
+class UserAddress
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255)
+     */
+    private $firstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=20)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address1", type="string", length=255)
+     */
+    private $address1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address2", type="string", length=255)
+     */
+    private $address2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zipcode", type="string", length=20)
+     */
+    private $zipcode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=100)
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=100)
+     */
+    private $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="extra", type="string", length=255)
+     */
+    private $extra;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return UserAddress
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return UserAddress
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return UserAddress
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set address1
+     *
+     * @param string $address1
+     *
+     * @return UserAddress
+     */
+    public function setAddress1($address1)
+    {
+        $this->address1 = $address1;
+
+        return $this;
+    }
+
+    /**
+     * Get address1
+     *
+     * @return string
+     */
+    public function getAddress1()
+    {
+        return $this->address1;
+    }
+
+    /**
+     * Set address2
+     *
+     * @param string $address2
+     *
+     * @return UserAddress
+     */
+    public function setAddress2($address2)
+    {
+        $this->address2 = $address2;
+
+        return $this;
+    }
+
+    /**
+     * Get address2
+     *
+     * @return string
+     */
+    public function getAddress2()
+    {
+        return $this->address2;
+    }
+
+    /**
+     * Set zipcode
+     *
+     * @param string $zipcode
+     *
+     * @return UserAddress
+     */
+    public function setZipcode($zipcode)
+    {
+        $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    /**
+     * Get zipcode
+     *
+     * @return string
+     */
+    public function getZipcode()
+    {
+        return $this->zipcode;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return UserAddress
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return UserAddress
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set extra
+     *
+     * @param string $extra
+     *
+     * @return UserAddress
+     */
+    public function setExtra($extra)
+    {
+        $this->extra = $extra;
+
+        return $this;
+    }
+
+    /**
+     * Get extra
+     *
+     * @return string
+     */
+    public function getExtra()
+    {
+        return $this->extra;
+    }
+}
+
