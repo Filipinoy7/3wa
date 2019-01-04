@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>PHP</title>
+    <link rel="stylesheet" href="order-form.css">
+</head>
+<body>
+
+   
+        <h1>Bons de commande</h1>
+
+        <a href="exercise.php">Retourner à l'accueil</a>
+        
+        
+         <article class="order-form-customer">
+            <h2><?= $customer['customerName'] ?></h2>
+            <h3><?= $customer['contactFirstName'] ?> <?= $customer['contactLastName'] ?> </h3>
+            <p><?= $customer['addressLine1'] ?></p>
+            <p><?= $customer['addressLine2'] ?></p>
+            <p><?= $customer['city'] ?></p>
+        </article>
+        <hr>
+
+
+         <table class="standard-table">
+            <caption>Liste des commandes</caption>
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix Unitaire</th>
+                    <th>Quantité</th>
+                    <th>Prix Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ( $commande as $commandes ): ?>
+                    <tr>
+                        <td>
+                            <?=$commandes['productName'] ?>
+                        </td>
+                        <td><?=$commandes['quantityOrdered'] ?></td>
+                        <td><?=$commandes['priceEach'] ?></td>
+                        <td><?= number_format($commandes['prixTotal'],2) ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                <td>Montant Total HT</td>
+                <td> <?= number_format($montant['prix'],2) ?></td>
+                </tr>
+                <tr>
+                <td>TVA (20%)</td>
+                <td><?= number_format($montant['prix'] * 0.2 ,2) ?></td>
+                </tr>
+                <tr>
+                    <td>Montant Total TTC</td>
+                    <td><?= number_format($montant['prix'] * 1.2 ,2) ?></td>
+                </tr>
+            </tfoot>
+        </table>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+</body>
+</html>
+        
+        

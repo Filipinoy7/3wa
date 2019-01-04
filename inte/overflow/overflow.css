@@ -1,0 +1,13 @@
+div {
+	width :400px;
+	height : 400px;
+	background-color: yellow;
+	overflow: auto;
+}
+h1 {
+	width : 400px;
+	background-color: #fc3;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

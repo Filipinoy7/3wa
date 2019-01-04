@@ -1,0 +1,22 @@
+body {
+	background-color: #F8FFF2;
+}
+table {
+	border-collapse: collapse;
+}
+tr th {
+	background-color: white;
+}
+h1,th {
+	color: #00948A;
+}
+tr:nth-child(odd) {
+	background-color: #B8BEB4;
+}
+tr:nth-child(even) {
+	background-color: #DEE4DA;
+}
+a {
+	color:#9C8781 ;
+	text-decoration: none;
+}

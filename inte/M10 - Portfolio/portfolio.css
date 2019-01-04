@@ -1,0 +1,347 @@
+* {
+	box-sizing: border-box;
+}
+
+.tete {
+	background-image: url("img/bg_header.png");
+	background-size: cover;
+	text-align: center;
+}
+.clear {
+	clear: both;
+}
+.container {
+	width: 80%;
+	margin: 0 auto;
+}
+body {
+	background-image: url("img/fond.png");
+	background-position: bottom;
+	font-family: 'Bree Serif', serif;
+}
+
+.cercle {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	text-align: center;
+}
+.cercle section {
+	width: 33%;
+}
+
+h2 {
+	text-align: center;
+	color: #CE3F5D;
+}
+h3 {
+	color : #CE3F5D
+}
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+}
+h1 img {
+	width: 100px;
+	vertical-align: middle;
+
+}
+h1 {
+
+	font-size: 2em;
+	color: grey;
+	display: inline-block;
+	transition: all 1s;
+	vertical-align: middle;
+
+}
+nav {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	text-align: right;
+	width: 50%;
+}
+nav a {
+	color: grey;
+	text-decoration: none;
+	transition: all 1s;
+	display: inline-block;
+
+}
+.navim i {
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.tete p {
+	color: white;
+	text-align: center;
+	line-height: 1.5em;
+	padding-bottom: 20px;
+}
+.tete h4 {
+	text-align: center;
+	color:white;
+	padding-top: 200px;
+	font-size: 1.5em;
+}
+.tete a {
+	text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color:#F3345B;
+    padding: 10px;
+    margin-bottom: 200px;
+    margin-top: 40px;
+    display: inline-block;
+  
+}
+.service {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.service section {
+	width: 33%;
+	text-align: center;
+}
+.icanim{
+	background-color: #EEEFF1;
+	border: 1px solid grey;
+	opacity: 0.4; 
+	width: 40px;
+	border-radius: 20px;
+	line-height: 40px;
+	text-align: center;
+	display: inline-block;
+}
+.icanim:hover {
+	animation: bouncing 2s infinite alternate;
+}
+.service section p {
+	line-height: 1.5em;
+}
+.orange img {
+	float: right;
+	width: 30%;
+	height: 20%;
+	margin-left: 20px;
+}
+p {
+	line-height: 2em;
+	color: grey;
+
+	opacity: 0.5em;
+}
+.time img {
+	float: left;
+	width: 30%;
+	height: 20%;
+	margin-right: 20px;
+}
+.plant img {
+	float: right;
+	width: 30%;
+	height: 20%;
+	margin-left: 20px;
+}
+.flower img {
+	float: left;
+	width: 30%;
+	height: 20%;
+	margin-right: 20px;
+}
+.middle a {
+	color: #CE3F5D;
+	text-decoration: none;
+}
+.button {
+	margin-top: 30px;
+	text-align:center;
+}
+.button1 {
+
+	background-color:#CE3F5D ;
+	padding: 5px 10px 5px 10px;
+}
+.button2 {
+	background-color: grey;
+	padding: 5px 10px 5px 10px;
+}
+
+.onze {
+	margin-top : 30px;
+}
+.hService {
+	border-bottom: 1px solid #EEEFF1;
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+}
+.hCompetence {
+	border-bottom: 1px solid #EEEFF1;
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+	margin-top: 60px;
+}
+.hRealisation {
+	border-bottom: 1px solid #EEEFF1;
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+}
+/*.hRealisation{
+    margin:0;
+    padding:0;
+    text-align:center;
+    position:relative;
+}
+.hRealisation span{
+    background-color:#fff;
+    padding:0 10px;
+}
+.hRealisation{
+    line-height:30px;
+    box-shadow:0 16px 0 0 #fff inset, 0 17px 0 0 red inset;
+}*/
+.middle a {
+	margin-left: 10px;
+}
+section {
+	margin-bottom: 50px;
+}
+.onze a {
+	color: #CE3F5D;
+}
+
+h1:hover {
+	color: #CE3F5D;
+	transform: scale(1.4);
+}
+
+nav a:hover {
+	transform: translateY(3em);
+}
+
+@keyframes bouncing {
+	0% {
+		transform: translateY(-3em);
+	}
+	50% {
+		transform: translateY(0em);
+	}
+	100% {
+		transform: translateY(-3em);
+	}
+}
+
+.formule {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.form1{
+	width: 48%;
+}
+.form2 {
+	width: 48%;
+}
+input {
+	width: 100%;
+	border-radius: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 40px;
+}
+.form1 input {
+	background-image: url("img/bg_form_name.svg");
+	background-repeat: no-repeat;
+	border: 1px solid grey ;
+	background-size: 25px;
+	background-position: 0.5%;
+}
+.form2 input {
+	background-image: url("img/bg_form_mail.svg");
+	background-repeat: no-repeat;
+	border: 1px solid grey;
+	background-size: 25px;
+	background-position: 0.5%;
+}
+.form3 input {
+	background-image: url("img/bg_form_message.svg");
+	background-repeat: no-repeat;
+	border: 1px solid grey;
+	background-size: 25px;
+	background-position: 0.3%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.onze {
+	text-align: center;
+	font-size:15px;
+	line-height:20px;
+}
+
+.onze img {
+	height:auto;
+	width:140px;
+}
+

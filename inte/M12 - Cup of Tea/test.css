@@ -1,0 +1,41 @@
+
+h1{
+    margin:0;
+    padding:0;
+    text-align:center;
+    position:relative;
+}
+h1 span{
+    background-color:#fff;
+    padding:0 10px;
+}
+.un{
+    line-height:30px;
+    box-shadow:0 16px 0 0 #fff inset, 0 17px 0 0 red inset;
+}
+.deux::before,
+.trois::before{
+    content:"";
+    position:absolute;
+    left:0;
+    width:100%;
+    z-index:-1;
+}
+.deux::before{    
+    top:50%;
+    height:1px;
+    background-color:blue;
+}
+.trois::before{    
+    top:0;
+    height:50%;
+    border-bottom:1px solid green;
+}
+.quatre{
+    border-bottom:1px solid pink;
+    margin-bottom:30px;
+}
+.quatre span{
+    position: relative;
+    top: 15px;
+}

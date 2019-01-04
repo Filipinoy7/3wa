@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jquery</title>
+    
+</head>
+<body>
+    <a href="#" class = "button"> OK </a>
+    <div class = "content"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore suscipit ex vero magnam numquam accusantium quis consequatur quibusdam. Ratione id quisquam voluptatem quaerat ipsa dolorum, hic iste pariatur rem officiis?</div>
+    <script src="jquery.js"></script>
+    <script>
+    $(function() {
+        $(".content").css({
+            "background-color":"green",
+            "color": "yellow",
+    });
+
+        $(".button").click(function(){
+            $(".content").css("background-color","red");
+            $(".content").html("Salut !");
+            $(".content").toggle(2000);
+    });
+
+});
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

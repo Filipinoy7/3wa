@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todolist</title>
+	<link rel="stylesheet" type="text/css" href="todo.css" />
+</head>
+<body>
+<div class="main">
+	<h1>Gestionnaire de tâches</h1>
+	<form method="POST" action="add.php">
+		<fieldset>
+		<legend>informations sur la tâche</legend>
+	<p>
+		<label for="title">Titre :</label>
+		<input type="text" name="title" class="firstInput">
+	</p>
+	<p>
+		<label for="tache">Tâche :</label>
+		<input type="text" name="tache" class="secondInput">
+	</p>
+	  <p>
+       <label for="date">Date de fin :</label>
+       <select name="jours" id="jours">
+           <option value="1">1</option>
+           <option value="5">5</option>
+           <option value="10">10</option>
+           <option value="15">15</option>
+           <option value="20">20</option>
+           <option value="25">25</option>
+           <option value="30">30</option>
+           
+       </select>
+       /
+       <select name="mois" id="mois">
+       	  <option value="janvier">janvier</option>
+           <option value="avril">avril</option>
+           <option value="aout">aout</option>
+           <option value="decembre">decembre</option>
+       </select>
+       <select name="année" id="année">
+        <option value="2015">2015</option>
+           <option value="2016">2016</option>
+           <option value="2017">2017</option>
+           <option value="2018">2018</option>
+       </select>
+   </p>
+     <p>
+       Priorité :
+       <input type="radio" name="priority" value="basse" id="moins15" /> <label for="moins15">Basse</label>
+       <input type="radio" name="priority" value="normale" id="medium15-25" /> <label for="medium15-25">Normale</label>
+       <input type="radio" name="priority" value="haute" id="medium25-40" /> <label for="medium25-40">Haute</label>
+   </p>
+   <p class="submit">
+   	<input type="submit" value="Ajouter" class="submit"/>
+   </p>
+		</fieldset>
+	</form>
+</div>
+</body>
+</html>
