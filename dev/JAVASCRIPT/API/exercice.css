@@ -1,0 +1,12 @@
+h1 {
+	text-align: center;
+}
+.premier {
+	background-color: grey;
+}
+
+#img {
+	float: left;
+	padding-right: 20px;
+}
+

@@ -216,3 +216,140 @@ $('#send').on('click', onClickShowListMovies);
 $(document).on('click', 'li', onClickShowDetails);
 
 </script>*/
+
+
+
+/*<!----------------- index.html -------->
+
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Movie</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<header>
+
+	</header>
+	<h1>Moteur de recherche de film</h1>
+	<div class="form">
+		<h2>Trouver un film :<h2>
+		<form>
+			<input type="text" name="search" id="search">
+			<input type="submit" name="send" id="send" value="rechercher">
+		</form>
+	</div>
+	<div class="info">
+		<div id="list" class="hide">
+			
+		</div>
+		<div id="result" class="hide">
+			<p>hello</p>
+		</div>
+	</div>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/api.js"></script>
+  <script type="text/javascript" src="js/events.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
+
+
+<!----------------- api.js -------->
+<script>
+
+function recupAllMovies(response) {
+
+	console.log(response);
+    var data = response.results;
+	var list = $('<ul id="list">');
+    
+    for (var i= 0; i < data.length; i ++ ) {
+		list.append($('<li data-id="'+data[i].id+'">').append(data[i].title));
+	}
+    
+    $("#list").html(list);
+    $("#list").removeClass('hide');
+}
+
+function displayDetails(response) {
+
+	var result = $('<div>');
+
+	var img = $('<img>').attr('src', url_img+response.poster_path).css('width', '250px');
+	var title = $('<h1>').append(response.title);
+	var year = $('<h2>').append(response.release_date);
+	var desc = $('<p>').append( response.overview );
+	var note = $('<p>').append( response.vote_average );
+	var companies = $('<div>').append('<h2>Companies</h2>')
+	companies.append('<ul>');
+    
+    result.append(img).append(title).append(year).append(desc).append(note).append(companies);
+    
+	$('#result').html(result);
+    
+    for(var i = 0; i < response.production_companies.length; i++) {
+    
+    	
+        $.getJSON('https://api.themoviedb.org/3/company/'+response.production_companies[i].id+'?api_key=2ee2c5b569240ea2a2a879dd9c8a822c', displayCompany);
+        
+    }
+    
+	
+}
+
+
+
+function displayCompany(response) {
+			
+	console.log(response);
+	$('#result ul').append('<li><a href="'+response.homepage+'">'+response.name+'</a></li>');
+    
+}
+
+
+</script>
+<!----------------- events.js -------->
+
+<script>
+
+const API_KEY = '2ee2c5b569240ea2a2a879dd9c8a822c';
+const url_img = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2';
+
+function onClickShowListMovies(event){
+
+	event.preventDefault();
+    
+	var query = $('input[name=search]').val();
+    
+    console.log(query);
+    
+	$.getJSON('https://api.themoviedb.org/3/search/movie?api_key='+API_KEY+'&query='+query, recupAllMovies);
+    
+}
+
+function onClickShowDetails() {
+	var id = $(this).data('id');
+    console.log(id);
+    
+    $getJSON('https://api.themoviedb.org/3/movie/'+id+'?api_key='+API_KEY, displayDetails);
+
+}
+
+</script>
+
+
+<!----------------- main.js -------->
+
+<script>
+
+
+
+$('#send').on('click', onClickShowListMovies);
+$(document).on('click', '#list li', onClickShowDetails);
+
+</script>*/
