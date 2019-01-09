@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Encore un Blog ?! #nonMaisAllo</title>
+</head>
+<body>
+	<h2><i class="fas fa-pen"></i>Rédiger un nouvel article</h2>
+
+	<form class="generic-form" action="add_post.php" method="post">
+    <fieldset>
+        <legend><i class="fas fa-sticky-note"></i> Nouvel article</legend>
+        <ul>
+            <li>
+                <label for="title">Titre :</label>
+                <input type="text" id="title" name="title">
+            </li>
+            <li>
+                <label class="textarea" for="contents">Article :</label>
+                <textarea id="contents" name="contents" rows="15"></textarea>
+            </li>
+            <li>
+                <label for="author">Auteur :</label>
+                <select id="author" name="author">
+                		<?php foreach ($admin as $admins): ?>
+                                            <option value="<?= $admins['Id'] ?>">
+                                            <?= $admins['FirstName'].' '.
+                                            $admins['LastName'] ?>
+                                            </option>
+                                        <?php endforeach ?>
+                                    </select>
+            </li>
+            <li>
+
+                <label for="category">Catégorie :</label>
+
+                <select id="category" name="category">
+                						<?php foreach ($filleMetro as $fillesMetro): ?>
+                                            <option value="<?= $fillesMetro['Id'] ?>"> <?= $fillesMetro['Name'] ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+            </li>
+            <li>
+                <button class="button button-primary" type="submit">Enregistrer</button>
+                <a class="button button-cancel" href="index.php">Annuler</a>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+
+</body>
+</html>

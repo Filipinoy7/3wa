@@ -157,8 +157,53 @@ function position(pos) {
     }
     
     console.log('nouveau tab', showtimes);
+
+    buildTableWithShow(showtimes);
+
+    function buildTableWithShow(showtimes) {
+
+    var table = $('<table>');
+    
+    table.append('<th>Cinéma</th><th>Horaire des scéances d\'aujourd\'hui</th>');
+    
+    for (var k = 0; k < showtimes.length; k++) {
+    
+        var tr = $('<tr>');
+        tr.append('<td id="'+showtimes[k].cineId+'">'+showtimes[k].cineId+'</td>');
+        
+        var td = $('<td>');
+        
+        for(var l = 0; l < showtimes[k].show.time.length; l++) {
+         
+            td.append('<a href="'+showtimes[k].show.url[l]+'">'+showtimes[k].show.time[l]+'</a> ')
+        
+        }
+        
+        tr.append(td);
+
+        table.append(tr);
+    
+    }
+
+    $('#affiche').html(table);
+
+
+    
+    for(var m = 0; m < showtimes.length; m ++) {
+    
+        getCineWithId(showtimes[m].cineId);
+
+    
+    }
+
+}
+
+
+
+    
     
 })
+
 
 
 
@@ -181,7 +226,33 @@ function splitSeance(string) {
     return result;
 }
 
+function getCineWithId(cineId) {
+    jQuery.ajax({
+    url: "https://api.internationalshowtimes.com/v4/cinemas/"+cineId,
+    type: "GET",
+    data: {
+        "countries": "FR",
+    },
+    headers: {
+        "X-API-Key": "nce8u3Rq5yNq0jL9FjpmxZ8jWCzv9xvw",
+    },
+    })
+    .done(function(response) {
+    
+        console.log('place',response);
 
+         $('#'+response.cinema.id).html('<h3>'+response.cinema.name+'</h3> <p>'+response.cinema.location.address.display_text+'</p>');
+        
+
+
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log("HTTP Request Failed");
+    })
+
+
+
+}
 
 
 /*************************** CORRECTION ******************/

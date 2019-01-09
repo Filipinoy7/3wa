@@ -10,3 +10,21 @@ h1 {
 	padding-right: 20px;
 }
 
+#affiche table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+#affiche table th {
+	border: 1px solid black;
+}
+
+#affiche table tr {
+	border: 1px solid black;
+}
+
+#affiche table td {
+	border: 1px solid black;
+}
+
+
