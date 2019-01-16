@@ -8,7 +8,23 @@
 	<h2><i class=" fa fa-cogs"></i>Panneau d'administration</h2>
 	<p><a href="add_post.php">Rédiger un nouvel article</a></p>
 	<table>
-	<caption>Liste des articles</caption>
+		<tr>
+			<th>Titre</th>
+			<th>Article</th>
+			<th>Auteur</th>
+			<th>Catégorie</th>
+		</tr>
+		<?php foreach ( $adminRecup as $adminRecups ): ?>
+		<tr>		
+			<td><a href="show_post.php"><?=$adminRecups['Title'] ?></a></td>
+			<td><?=$adminRecups['Contents'] ?></td>
+			<td><?=$adminRecups['FirstName'].''.$adminRecups['LastName'] ?></td>
+			<td><?=$adminRecups['Name'] ?></td>
+			<td><a href="change_content.php?id=<?= htmlspecialchars($adminRecups['Id']) ?> "><i class="fa fa-pencil"></i></a></td>
+       <td><a href="remove.php?id=<?= htmlspecialchars($adminRecups['Id']) ?>"><i class="fa fa-remove"></i></a></td>
+
+		</tr>
+		<?php endforeach ?>
 	</table>
 </body>
 </html>

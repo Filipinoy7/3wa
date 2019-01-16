@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>show</title>
+</head>
+<body>
+	<main>
+		<h2><i class="fas fa-file-alt"></i>Article</h2>
+
+		 	<?php foreach ( $indexRecup as $indexRecups ): ?>
+		<h3><?= htmlspecialchars($indexRecups['Title']) ?></a></h3>
+		<article>
+			<?= htmlspecialchars($indexRecups['Contents']) ?>
+		</article>
+		<small>Rédiger par <?= htmlspecialchars($indexRecups['FirstName']).' '.htmlspecialchars($indexRecups['LastName']).' le '.htmlspecialchars($indexRecups['CreationDate']) ?></small>
+			<?php endforeach ?>
+<hr>
+<ul class="comment-list">
+    <?php foreach($addPseudo as $comment): ?>
+        <li class="comment">
+            <h4><i class="fa fa-comment"></i> Rédigé par <?= htmlspecialchars($comment['Pseudo']) ?></h4>
+            <article><?= htmlspecialchars($comment['Contents']) ?></article>
+        </li>
+    <?php endforeach; ?>
+</ul>
+<hr>
+			<form class="generic-form" action="add_comment.php" method="POST">
+
+    <!-- Utilisation d'un champ caché pour spécifier à quel article rattacher le commentaire -->
+    <input type="hidden" name="postId" value="<?= $_GET['id'] ?>">
+
+    <fieldset>
+        <legend><i class="far fa-comment"></i> Nouveau commentaire</legend>
+        <ul>
+            <li>
+                <label for="nickName">Pseudo :</label>
+                <input type="text" id="nickName" name="nickName">
+            </li>
+            <li>
+                <label class="textarea" for="contents">Commentaire :</label>
+                <textarea id="contents" name="contents" rows="5"></textarea>
+            </li>
+            <li>
+                <button class="button button-primary" type="submit">Ajouter</button>
+                <a class="button button-cancel" href="index.php">Annuler</a>
+            </li>
+        </ul>
+    </fieldset>
+</form>
+	</main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="exercice.css">
+
+    <!-- Librairie jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Fonctions utilitaires -->
+   
+</head>
+<body cz-shortcut-listen="true">
+    <section>
+        <h1><i class="fa fa-book"></i> Carnet d'Adresses</h1>
+
+        <!-- Contenu du carnet d'adresses (liste de contacts) -->
+        <section id="address-book"><ul></ul></section>
+
+        <!-- Détails d'un contact particulier du carnet d'adresses -->
+        <aside id="contact-details" data-id="" class="hide" style="display: none;">
+            <h3>M. dfhwdh GFJW</h3>
+            <p>5401564447</p>
+            <a href="#">Editer ce contact</a>
+        </aside>
+
+        <nav>
+            <ul class="menu">
+                <li><button id="add-contact" title="Ajouter un contact"><i class="fa fa-plus"></i></button></li>
+                <li><button id="clear-address-book" title="Effacer le carnet d'adresses"><i class="fa fa-trash-alt"></i></button></li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- Le formulaire de saisie de contact ne s'affiche pas au démarrage -->
+    <form id="contact-form" class="hide standard-form" data-mode="add">
+        <hr>
+        <ul>
+            <li>
+                <label for="title">Civilité :</label>
+                <select id="title" name="title">
+                    <option value="Madame">Madame</option>
+                    <option value="Mademoiselle">Mademoiselle</option>
+                    <option value="Monsieur">Monsieur</option>
+                </select>
+            </li>
+            <li>
+                <label for="lastName">Nom :</label>
+                <input id="lastName" type="text" name="lastName">
+            </li>
+            <li>
+                <label for="firstName">Prénom :</label>
+                <input id="firstName" type="text" name="firstName">
+            </li>
+            <li>
+                <label for="phone">Téléphone :</label>
+                <input id="phone" type="text" name="phone" maxlength="10">
+            </li>
+            <li>
+                <input type="button" id="save-contact" value="Enregistrer">
+            </li>
+        </ul>
+    </form>
+
+    <!-- Code principal du carnet d'adresses -->
+     <script src="utilities.js"></script>
+
+    <!-- Fonctions du carnet d'adresses -->
+    <script src="address-book.js"></script>
+    <!-- Evenements du carnet d'adresses -->
+    <script src="event.js"></script>
+    <script src="exercice.js"></script>
+
+</body>
+
+</html>
