@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ARDOISE MAGIQUE</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" href="index.css">
+</head>
+<body cz-shortcut-listen="true">
+
+	<main>
+	<h1>La magie de l'ardoise</h1>
+	<canvas id="slate" class="slate" width="640" height="480"></canvas>
+        <canvas id="slate2" class="slate" width="640" height="480"></canvas>
+        <canvas id="color-palette" class="color-palette hide" width="256" height="256"></canvas>
+	<hr>
+	</main>
+	    <nav class="toolbar">
+        <ul>
+            <li>
+                <label>Outils</label>
+                <button id="tool-clear-canvas" title="Effacer"><i class="fa fa-eraser"></i></button>
+                <button id="tool-color-picker" title="Pipette"><i class="fas fa-eye-dropper"></i></button>
+            </li>
+            <li>
+                <label>Couleur</label>
+                <div class="pen-color black" data-color="black"></div>
+                <div class="pen-color maroon" data-color="#5C2121"></div>
+                <div class="pen-color red" data-color="#B9121B"></div>
+                <div class="pen-color yellow" data-color="#FFBD07"></div>
+                <div class="pen-color green" data-color="#13B813"></div>
+                <div class="pen-color seagreen" data-color="#029E9A"></div>
+                <div class="pen-color blue" data-color="#0378A6"></div>
+            </li>
+            <li>
+                <label>Epaisseur</label>
+                <button class="pen-size" data-size="1">Fin</button>
+                <button class="pen-size" data-size="2">Normal</button>
+                <button class="pen-size" data-size="5">Epais</button>
+            </li>
+        </ul>
+    </nav>
+
+
+
+
+
+
+
+
+	<script src="utilities.js"></script>
+	<script src="pen.js"></script>
+	<script src="slate.js"></script>
+	<script src="program.js"></script>
+	<script src="main.js"></script>
+	
+</body>
+</html>

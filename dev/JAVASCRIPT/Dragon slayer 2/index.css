@@ -1,0 +1,54 @@
+section {
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	justify-content: space-between;
+}
+
+
+
+.touche {
+	text-align: center;
+}
+
+.luffy p {
+	background-color: orange;
+	color: white;
+}
+
+.kaido p {
+	background-color: #8A2BE2;
+	color: white;
+}
+
+.luffyAnim {
+	animation-duration: 2s;
+	animation-name: coup;
+}
+
+@keyframes coup {
+	from {
+		margin-left: 100%;
+	}
+	to {
+		margin-left: 220%;
+	}
+}
+.kaidoAnim {
+	animation-duration: 2s;
+	animation-name: coups;
+}
+
+@keyframes coups {
+	from {
+		margin-left: 100%;
+	}
+	to {
+		margin-left: -220%;
+	}
+}
+
+
+.hide {
+	display: none;
+}
