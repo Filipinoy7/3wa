@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>session</title>
+</head>
+<body>
+<nav>
+
+	<a href="index.php">Index</a>
+	<?php if (array_key_exists( 'firstName', $_SESSION ) == false) {?>
+		<a href="register.php">register</a>
+		<a href="login.php">login</a>
+	<?php } else {?>
+		<a href="deco.php">deconnexion</a>
+		<a href="info.php">info</a>
+	<?php } ?>
+</nav>
+
+
+<?php include $template.'.phtml';?>
+
+
+<div>
+	<p>ceci est un footer</p>
+</div>
+
+
+</body>
+</html>

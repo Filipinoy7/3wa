@@ -42,6 +42,7 @@ function onClickCanvas(event)
 
 	disk.draw(context);
 	console.log(disk);
+	
 
 
 }

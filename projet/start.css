@@ -1,0 +1,65 @@
+body {
+	background-image: url(image/1.jpg);
+	background-size: cover;
+
+
+}
+
+.container {
+	width : 60%;
+	margin: 0 auto;
+}
+
+/************Navigation****************/
+header {
+	background-color: black;
+}
+nav ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	list-style: none;
+	padding-left: 0;
+
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: grey;
+	display: inline-block;
+	text-align: center;
+
+
+}
+
+nav ul li  .fas {
+	display: block;
+}
+
+.fas {
+	margin-top: 60px;
+	margin-bottom: 10px;
+}
+
+/************entete**********/
+
+/*.entete {
+	
+	width: 90%;
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}*/
+
+.entete p {
+	color: grey;
+	line-height: 1.5em;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+h1 {
+	color: grey;
+	text-align: center;
+}
+
