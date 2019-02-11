@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Philippines</title>
+	<link rel="icon" href="images/logo2.png">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" href="../CSS/index.css">
+</head>
+
+<body>
+	<header>
+		<nav class="top">
+			<div class="navHeader">
+					<a href="index.php">
+						<img src="../images/logo.png" alt="" width="100" height="100">
+					</a>
+				
+					<a href="index.php" class="lienHeader">
+					<i class="fas fa-home"></i>
+							Accueil
+					</a>
+
+					<a href="experience.php" class="lienHeader">
+					<i class="fas fa-hiking"></i>
+							Expériences
+					</a>
+							
+					<a href="rediger.php" class="lienHeader">
+					<i class="fas fa-pen-fancy"></i>
+							Rédiger
+					</a>
+						<?php if ($_SESSION != null) { ?>
+							<a href="logout.php" class="lienHeader">
+							<i class="fas fa-bed"></i>
+							Se déconnecter
+							</a>
+						<?php } 
+
+						else { ?>
+
+					<a href="login.php" class="lienHeader">
+					<i class="fas fa-sign-in-alt"></i>
+							Se connecter
+					</a>
+					
+					<a href="register.php" class="lienHeader">
+					<i class="fas fa-registered"></i>
+							S'enregistrer
+					</a>
+
+						<?php } ?>
+
+					<a href="#faq" class="lienHeader"><i class="fas fa-question-circle"></i>
+							F.A.Q
+					</a>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<?php include $template.'.phtml' ?>
+	</main>
+
+	<footer> 
+		<div class="bot container">
+			<a href="">
+				Accueil
+			</a>
+
+			<a href="">
+				Expériences
+			</a>
+
+			<a href="">
+				Rédiger
+			</a>
+
+			<a href="">
+				F.A.Q
+			</a>			
+		</div>
+		
+		<div class="botImage container">
+			<a href="index.html">
+				<img src="../images/logo.png" alt="" height="100" width="100"/>
+			</a>
+		</div>
+
+		<div class="bot container">
+			<a href="">
+				esfsff
+			</a>
+
+			<a href="">
+				dzdzd
+			</a>
+
+			<a href="">
+				sddsf
+			</a>
+		</div>
+	</footer>
+
+<script type="text/javascript" charset="utf-8" src="../JS/index.js"></script>
+
+</body>
+
+</html>

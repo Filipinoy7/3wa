@@ -1,0 +1,233 @@
+/****************GENERAL************/
+* 
+{
+	box-sizing: border-box;
+}
+
+body 
+{
+	background-color: #F3F3F3;
+	margin: 0;
+}
+
+.container 
+{
+	width: 60%;
+	margin: auto;
+}
+
+/********************************/
+
+
+
+
+
+
+/***********HEADER***************/
+
+.top 
+{
+	position: fixed;
+	width: 100%;
+	margin-top: 0;
+	box-shadow: 0 4px 4px black;
+}	
+
+.navHeader
+{
+	background: rgba(0,0,0,0.5);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 0;
+	vertical-align: middle;
+}
+
+.fas 
+{
+	display: block;
+	text-align: center;
+
+}
+
+
+.lienHeader 
+{
+	padding-top: 30px;
+	color: white;
+	text-decoration: none;
+	font-size: 1.5em;
+	transition: all 1s;
+	font-family: 'Lobster', cursive;
+
+}
+
+.lienHeader:hover 
+{
+	transform: scale(1.4);
+	color: #8B0000;
+}
+
+/***************************************/
+
+
+
+
+
+
+/**************MAIN*********************/
+
+h2 
+{
+	text-align: center;
+	color: #8B0000;
+}
+
+p 
+{
+	color: #696969;
+	line-height: 1.5em;
+}
+
+
+
+
+
+
+/**************************************************************/
+
+
+
+
+
+
+/******************EXPERIENCE************************/
+
+.partage img {
+	display: inline;
+	float: left;
+	padding-right: 20px;
+	width: 300px;
+	height: 150px;
+}
+
+.auteur {
+	font-weight: bold;
+	text-align: right;
+}
+
+.partage h3 {
+	text-align: center;
+	color: #696969;
+}
+
+.clear {
+	clear: both;
+}
+
+/**************************************************/
+
+
+
+
+/*******************LOGIN.PHP/REGISTER.PHP********************/
+
+form 
+{
+	
+	margin-bottom: 100px;
+	text-align: center;
+}
+
+fieldset 
+{
+	border-radius: 50% 20% / 10% 40%;
+	border-color: #8B0000;
+	background-color: #8B0000;
+}
+
+
+.formulaireRegister li 
+{
+	list-style: none;
+	padding-top: 20px;
+	color: white;
+	font-weight: bold;
+
+}
+
+.buttonLogin 
+{
+	padding-bottom: 20px;
+}
+
+.buttonLogin a 
+{
+	color: black;
+	text-decoration: none;
+}
+ 
+
+/*********************************************/
+
+
+
+
+
+
+/**********************REDIGER.PHP***************/
+
+.articleTop {
+	vertical-align: top;
+}
+
+/***************************************************/
+
+
+
+
+
+
+/****************GoogleMap********************/
+
+iframe 
+{
+	width: 100%;
+}
+
+/**********************************/
+
+
+
+
+
+
+/**********FOOTER************/
+
+footer 
+{
+	background-color: #8B0000;
+}
+
+.bot
+{
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.botImage 
+{
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.bot a 
+{
+	color: white;
+	font-family: 'Lobster', cursive;
+}
+
+/****************************/

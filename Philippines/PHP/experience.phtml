@@ -1,0 +1,37 @@
+<img src="../images/activiteBanner.jpeg" alt="">
+
+<main class="container">
+
+	<div class="partage">
+
+
+		<h2>Ici nous pourrons partager</h2>
+
+		<hr>
+
+		<?php foreach ( $experienceRecup as $experienceRecups ): ?>
+
+				<h3><?= htmlspecialchars($experienceRecups['Title']) ?></h3>
+
+				
+
+				<p><?= htmlspecialchars($experienceRecups['Contents']) ?></p>
+		
+		
+			
+			
+
+				<p class='auteur'>Rédiger par : <?= htmlspecialchars($experienceRecups['Pseudo']) ?></p>
+
+				<hr>
+
+		<?php endforeach ?>
+		
+
+		<div class="clear">
+		</div>
+
+	</div>
+
+
+</main>
