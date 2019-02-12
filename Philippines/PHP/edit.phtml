@@ -1,0 +1,29 @@
+<img src="../images/rediger.jpg" alt="" width="100%">
+
+<h2><i class="fa fa-pencil"></i> Editer votre article</h2>
+
+
+<form class="generic-form" action="edit.php" method="post">
+
+    
+    <input type="hidden" name="postId" value="<?= intval($_GET['id']) ?>">
+
+    <fieldset>
+        <ul class="formulaireRegister">
+            <li>
+                <label for="title">Titre :</label>
+                <input type="text" id="title" name="title" value="<?= htmlspecialchars($post['Title']) ?>">
+            </li>
+
+            <li>
+                <label class="textarea" for="contents">Article :</label>
+                <textarea id="contents" name="contents" rows="15"><?= htmlspecialchars($post['Contents']) ?></textarea>
+            </li>
+
+            <li class="buttonLogin">
+                <button class="button button-primary" type="submit">Mettre à jour</button>
+                <button><a class="button button-cancel" href="index.php">Annuler</a></button>
+            </li>
+        </ul>
+    </fieldset>
+</form>

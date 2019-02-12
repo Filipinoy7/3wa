@@ -31,7 +31,7 @@ if(empty($_POST) == false)
     } 
     else if ( verifyPassword($_POST['password'], $user['password']) == true ) 
     {
-    
+    	$_SESSION['Id'] = $user['Id'];
     	$_SESSION['Mail'] = $user['mail'];
 		$_SESSION['Prénom'] = $user['firstName'];
 		$_SESSION['Nom'] = $user['lastName'];

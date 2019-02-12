@@ -18,10 +18,19 @@
 				<p><?= htmlspecialchars($experienceRecups['Contents']) ?></p>
 		
 		
+	
+				<p class='auteur'>Rédiger par : <?= htmlspecialchars($experienceRecups['pseudo']) ?></p>
 			
-			
+			<?php if (array_key_exists('role', $_SESSION) && ($_SESSION['role'] == 'admin' || $_SESSION['Id'] == $experienceRecups['userId'] )) { ?>
 
-				<p class='auteur'>Rédiger par : <?= htmlspecialchars($experienceRecups['Pseudo']) ?></p>
+				<a class="edit" href="edit.php?id=<?= intval($experienceRecups['Id']) ?>"><button>Modifier</button></a>
+				<a href="delete.php?id=<?= intval($experienceRecups['Id']) ?>"><button>Supprimer</button></a>
+
+			<?php } else { ?>
+				
+			<?php }?>
+
+			
 
 				<hr>
 

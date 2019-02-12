@@ -2,14 +2,11 @@
 
 session_start();
 
-var_dump($_POST);
-
-
 if (empty($_POST) ==  false) {
 
 		$title = $_POST['title'];
 		$content = $_POST['contents'];
-		$user = $_SESSION['pseudo'];
+		$user = $_SESSION['Id'];
 
 		$pdo = new PDO('mysql:host=localhost;dbname=Philippines', 'root', 'troiswa');
 
