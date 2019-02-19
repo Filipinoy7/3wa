@@ -1,0 +1,28 @@
+<img src="images/contactBanner.jpeg" alt="" width="100%">
+
+<div class="contanier">
+	<h2>Vos publications</h2>
+
+	<?php foreach($Posts as $Post): ?>
+
+	<form action="profil?id=<?= $Post['postId'] ?>" method="post">
+			<h2><?= htmlspecialchars($Post['Title']) ?></h2>
+
+			<img src="recupImages/<?= $Post['file'] ?>" alt="" width="200" height="200">
+
+			<p><?= htmlspecialchars($Post['Contents']) ?></p>
+			
+			
+		
+			<p class='auteur'>Rédiger par : <?= htmlspecialchars($Post['pseudo']) ?></p>
+
+			<p class='auteur'>Fais le : <?= htmlspecialchars($Post['CreationDate']) ?></p>
+
+			<p>Status: <?= htmlspecialchars($Post['Status']) ?></p>
+	
+				<a href="delete.php?id=<?=($Post['postId']) ?>"><button>Supprimer</button></a>
+	</form>
+
+<?php endforeach ?>
+
+</div>

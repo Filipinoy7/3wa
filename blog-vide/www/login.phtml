@@ -1,0 +1,30 @@
+<!-- Page d'ajout d'un article -->
+<h2><i class="fa fa-pencil"></i> Connectez vous </h2>
+
+<?php if ($error == true ) {?>
+<div class="popup">
+    <p> <?= $message ?></p>
+</div>
+<?php } ?>
+
+
+<!-- Formulaire de saisie d'un nouvel article -->
+<form class="generic-form" action="login.php" method="post">
+    <fieldset>
+        <legend><i class="fa fa-sticky-note-o"></i> Nouvel utilisateur</legend>
+        <ul>
+            <li>
+                <label for="email">Email :</label>
+                <input type="text" id="firstName" name="email">
+            </li>
+            <li>
+                <label for="password">Mot de Passe :</label>
+                <input type="password" id="password" name="password">
+            </li>
+            <li>
+                <button class="button button-primary" type="submit">Connexion</button>
+                <a class="button button-cancel" href="index.php">Annuler</a>
+            </li>
+        </ul>
+    </fieldset>
+</form>

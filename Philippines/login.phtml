@@ -1,0 +1,32 @@
+<img src="images/contactBanner.jpeg" alt="" width="100%">
+
+<div class="container">
+    <h2>Connectez vous !</h2>
+    
+    <?php if ($error == true ) {?>
+        <div>
+            <p> <?= $message ?></p>
+        </div>
+    <?php } ?>
+
+    <form class="generic-form" action="login.php" method="POST">
+        <fieldset>
+            <ul class="formulaire">
+                <li class="emailLogin">
+                    <label for="email">Email :</label>
+                    <input class="borderValid" type="text" id="firstName" name="email" required>
+                </li>
+
+                <li class="mdpLogin">
+                    <label for="password">Mot de Passe :</label>
+                    <input class="borderValid" type="password" id="password" name="password" required>
+                </li>
+
+                <li class="buttonLogin">
+                    <button class="button button-primary" type="submit">Connexion</button>
+                    <button><a class="button button-cancel" href="index.php">Annuler</a></button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</div>

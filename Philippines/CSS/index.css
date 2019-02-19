@@ -89,14 +89,12 @@ p
 	line-height: 1.5em;
 }
 
-h4 {
+h4 
+{
 	text-align: center;
 	font-size: 2em;
 	color: #FFA500;
 }
-
-
-
 
 /**************************************************************/
 
@@ -107,7 +105,8 @@ h4 {
 
 /******************EXPERIENCE************************/
 
-.partage img {
+.partage img 
+{
 	display: inline;
 	float: left;
 	padding-right: 20px;
@@ -115,7 +114,8 @@ h4 {
 	height: 150px;
 }
 
-.auteur {
+.auteur 
+{
 	font-weight: bold;
 	text-align: right;
 }
@@ -151,7 +151,7 @@ fieldset
 }
 
 
-.formulaireRegister li 
+.formulaire li 
 {
 	list-style: none;
 	padding-top: 20px;
@@ -160,9 +160,33 @@ fieldset
 
 }
 
+.formulaireRegister li 
+{
+	list-style: none;
+	padding-top: 20px;
+	color: white;
+	font-weight: bold;
+}
+
+.formulaireRegister li:nth-child(2)
+{
+	padding-right: 33px;
+}
+
+.formulaireRegister li:nth-child(3)
+{
+	padding-right: 22px;
+}
+
+.formulaireRegister li:nth-child(5)
+{
+	padding-right: 17px;
+}
+
 .buttonLogin 
 {
 	padding-bottom: 20px;
+	padding-left: 30px;
 }
 
 .buttonLogin a 
@@ -171,6 +195,18 @@ fieldset
 	text-decoration: none;
 }
  
+.mdpLogin 
+{
+	padding-right: 50px;
+}
+
+.borderValid:invalid {
+  border: 3px solid red;
+}
+
+.borderValid:valid {
+  border: 3px solid yellow;
+}
 
 /*********************************************/
 
@@ -181,10 +217,19 @@ fieldset
 
 /**********************REDIGER.PHP***************/
 
-.articleTop {
+.articleTop 
+{
 	vertical-align: top;
 }
 
+.choixFichier
+{
+	color: white;
+    padding-top: 20px;
+    margin-top: 20px;
+    margin-left: 130px;
+    font-weight: bold;
+}
 /***************************************************/
 
 

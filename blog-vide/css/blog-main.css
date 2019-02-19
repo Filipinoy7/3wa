@@ -1,0 +1,43 @@
+*
+{
+    box-sizing: border-box;
+}
+
+
+a
+{
+    text-decoration: none;
+}
+
+form
+{
+    margin-top: 2em;
+}
+form fieldset
+{
+    border-radius: 4px;
+}
+form fieldset legend
+{
+    padding: 0 0.5em;
+}
+
+hr
+{
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+.popup {
+	border: 3px solid red;
+	width: 50%;
+	margin: auto;
+    margin-bottom: 64px;
+    border-radius: 10px;
+}
+
+.popup p{
+	color: #01A2A6;
+    letter-spacing: 0.1em;
+    text-align: center;
+}

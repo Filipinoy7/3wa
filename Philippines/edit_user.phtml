@@ -1,0 +1,64 @@
+<img src="images/admin.jpeg" alt="" width="100%">
+
+
+
+<?php foreach($users as $user): ?>
+
+	<form action="edit_user.php?id=<?= $user['Id'] ?>" method="post">
+		<h2><?= htmlspecialchars($user['pseudo']) ?></h2>
+
+		        <select name="role">
+		           	             
+	<option<?php if($user['role'] == 'user') {?> 
+		       			selected 
+		    <?php }?> 
+		        		value="user" >User</option>
+
+		             
+	<option<?php if($user['role'] == 'admin') {?> 
+		        		selected 
+		    <?php }?> 
+		        		value="admin" >Admin</option>
+		        </select>
+		        
+		        <button type="submit">Envoyer</button>
+	</form>
+
+<?php endforeach ?>
+
+
+
+
+<?php foreach($Posts as $Post): ?>
+
+	<form action="edit_status.php?id=<?= $Post['postId'] ?>" method="post">
+			<h2><?= htmlspecialchars($Post['Title']) ?></h2>
+
+			<img src="recupImages/<?= $Post['file'] ?>" alt="" width="200" height="200">
+
+			<p><?= htmlspecialchars($Post['Contents']) ?></p>
+			
+			
+		
+			<p class='auteur'>Rédiger par : <?= htmlspecialchars($Post['pseudo']) ?></p>
+
+			<p class='auteur'>Fais le : <?= htmlspecialchars($Post['CreationDate']) ?></p>
+
+			<p><select name="Status"></p>
+		             
+<option<?php if($Post['Status'] == 'accept') {?> 
+		        		selected 
+		<?php }?> value="accept" >Accept</option>
+	             
+<option<?php if($Post['Status'] == 'waiting') {?> 
+		        		selected 
+		<?php }?> 
+		        		value="waiting" >Waiting</option>
+		        </select>
+		        
+		        <button type="submit">Envoyer</button>
+	
+				<a href="delete.php?id=<?=($Post['postId']) ?>"><button>Supprimer</button></a>
+	</form>
+
+<?php endforeach ?>
